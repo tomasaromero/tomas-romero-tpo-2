@@ -1,0 +1,546 @@
+/* FASE 3: CONFIGURACIÓN BASE Y ESTILOS [cite: 67, 68] */
+
+/* Definición de la paleta de colores (inspirado en OnyxPulse/Checklist) */
+:root {
+    --color-primario: #0a0a0a; /* Negro/Gris oscuro para texto y header */
+    --color-secundario: #f4f4f4; /* Gris claro para fondo */
+    --color-acento: #007bff;     /* Azul para botones y enlaces */
+    --color-texto: #333;
+    --color-fondo: #ffffff;
+    --fuente-titulos: 'Montserrat', sans-serif; /* [cite: 17] */
+    --fuente-texto: 'Lato', sans-serif;         /* [cite: 18] */
+}
+
+/* Reseteo básico */
+body, h1, #h2-about, #contacto, h3, h4, p, ul, li, button, input {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-texto);
+    color: var(--color-texto);
+}
+h2 {
+    margin: 0;
+    padding: 10px;
+    font-family: var(--fuente-texto);
+    color: white;
+
+}
+
+body {
+    background-color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+/* Contenedor principal para centrar contenido */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ESTILOS DEL HEADER [cite: 70] --- */
+.site-header {
+    background-color: var(--color-fondo);
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    /* Fijar la cabecera para que esté siempre visible */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Evitar que el contenido quede oculto bajo la cabecera fija */
+main {
+    padding-top: 80px; /* ajustar según el alto real del header si es necesario */
+}
+
+.header-container {
+    display: flex; /* Uso de Flexbox [cite: 70] */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fuente-titulos);
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+.main-nav ul {
+    display: flex; /* Menú horizontal con Flexbox [cite: 71] */
+    list-style: none;
+    gap: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-texto);
+}
+
+.hamburger-menu {
+    display: none; /* Oculto en escritorio [cite: 81] */
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- ESTILOS DEL HERO --- */
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-fondo);
+    margin-top: 20px;
+}
+.hero h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 42px;
+}
+
+/* Suavizar borde del contenedor del título principal */
+.hero {
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px; /* leve curva en las esquinas */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* Estética mejorada para la sección de texto con listas (about) */
+.section-card {
+    background-color: rgba(255,255,255,0.95);
+    margin: 24px auto;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.card-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.card-text li {
+    background: linear-gradient(180deg, #ffffff, #fbfbfb);
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.035);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card-text li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* --- LAYOUT PRINCIPAL (Flexbox) [cite: 72] --- */
+.main-content-area {
+    display: flex; /* REQUISITO CLAVE: Flexbox para contenido + sidebar [cite: 72] */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.articles-section {
+    flex: 3; /* El contenido principal ocupa más espacio */
+    min-width: 0; /* Soluciona problemas de overflow en flexbox */
+}
+
+.articles-section h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 10px;
+}
+
+.sidebar {
+    flex: 1; /* El sidebar ocupa menos espacio */
+    min-width: 280px; /* Ancho mínimo */
+}
+
+/* --- GRILLA DE ARTÍCULOS (Flexbox) [cite: 73] --- */
+.article-grid {
+    display: flex;
+    flex-wrap: wrap; /* REQUISITO CLAVE: flex-wrap [cite: 73] */
+    gap: 20px;
+}
+.article-grid {
+    display: flex;
+    flex-wrap: wrap; /* REQUISITO CLAVE: flex-wrap [cite: 73] */
+    gap: 20px;
+    justify-content: center; /* centrar columnas dentro del contenedor */
+}
+
+.article-card {
+    /* En escritorio, 2 columnas (50% - gap) */
+    flex-basis: calc(50% - 10px);
+    max-width: 400px; /* evita que crezcan demasiado al centrar */
+    background-color: var(--color-fondo);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* asegurar que los hijos (picture, .card-content) ocupen todo el ancho */
+    text-align: center; /* centra el texto dentro de la tarjeta */
+    margin: 0 auto; /* garantiza centrado en casos de ancho menor */
+}
+
+.article-card img {
+    width: 100%;
+    height: 250px;
+    display: block; /* elimina espacio inferior indeseado */
+    padding: 0;
+    margin: 0;
+    border-radius: 0;    /* la tarjeta (.article-card) controlará el recorte con overflow:hidden */
+}
+
+/* Asegurar que el elemento picture ocupe todo el ancho dentro de la tarjeta */
+.article-card picture {
+    display: block;
+    width: 100%;
+}
+
+.card-content {
+    width: 100%; /* asegura que el contenido ocupe todo el ancho de la tarjeta */
+}
+
+/* Alinea la bajada/texto introductorio a la derecha (no afecta títulos) */
+.card-content p {
+    padding-right: 20px; /* espacio interior hacia la derecha si se necesita */
+    text-align: right; /* alinear la bajada a la derecha */
+}
+
+.category-badge {
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: white;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.article-card h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.article-card time {
+    font-size: 14px;
+    color: #777;
+}
+
+/* --- PAGINACIÓN --- */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.pagination a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+
+/* --- SIDEBAR --- */
+.widget {
+    background-color: var(--color-fondo);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.widget h4 {
+    font-family: var(--fuente-titulos);
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+.profile-pic {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Formulario de suscripción  */
+.subscription-form {
+    display: flex;
+    flex-direction: column;
+}
+.subscription-form input[type="email"],
+.subscription-form input[type="password"],
+.subscription-form input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilos para los radio buttons y su contenedor */
+.category-label {
+    margin: 15px 0 8px;
+    font-weight: 600;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--color-secundario);
+    border-radius: 6px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-item input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-acento);
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.radio-item input[type="radio"]:checked {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+}
+
+.radio-item input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.radio-item label {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Hover y focus states para los radio buttons */
+.radio-item input[type="radio"]:hover {
+    border-color: #0056b3;
+}
+
+.radio-item:hover label {
+    color: var(--color-acento);
+}
+.btn-primary {
+    background-color: var(--color-acento);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.categories-widget ul {
+    list-style: none;
+}
+.categories-widget li {
+    margin-bottom: 8px;
+}
+.categories-widget a {
+    text-decoration: none;
+}
+
+/* --- FOOTER [cite: 75] --- */
+.site-footer {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.footer-container {
+    display: flex; /* Flexbox para columnas [cite: 75] */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para que se apilen en móvil */
+    gap: 20px;
+}
+
+.footer-col {
+    flex-basis: 300px; /* Base para las columnas */
+}
+.footer-col h4 {
+    color: white;
+    font-family: var(--fuente-titulos);
+}
+.footer-col p, .footer-col a {
+    color: #ccc;
+    text-decoration: none;
+}
+.footer-col ul {
+    list-style: none;
+}
+
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+}
+.copyright p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+/* --------------------------------------------------- */
+/* FASE 3: RESPONSIVE DESIGN [cite: 76]                */
+/* --------------------------------------------------- */
+
+/* --- TABLETS (768px - 1024px) [cite: 79] --- */
+/* (El diseño de 2 columnas se mantiene bien, así que no hay muchos cambios aquí) */
+
+/* --- MÓVILES (< 768px) [cite: 78] --- */
+@media (max-width: 767px) {
+    
+    .main-nav {
+        display: none; /* Oculta el menú normal [cite: 81] */
+        /* (Se necesitaría JavaScript para mostrarlo al pulsar el botón) */
+    }
+
+    .hamburger-menu {
+        display: block; /* Muestra el botón hamburguesa [cite: 81] */
+    }
+
+    .main-content-area {
+        flex-direction: column; /* Apila el contenido principal */
+    }
+
+    /* REQUISITO CLAVE CUMPLIDO:
+       "Cuando sea muy angosta, el side content deja de ser visto."
+    */
+    .sidebar {
+        display: none; 
+    }
+
+    .article-grid {
+        flex-direction: column; /* Apila los artículos */
+    }
+
+    .article-card {
+        flex-basis: 100%; /* Cada artículo ocupa el 100% */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Apila las columnas del footer */
+        text-align: center;
+    }
+}
+
+/* --------------------------------------------------- */
+/* HOVERS Y TRANSICIONES (efectos visuales suaves)     */
+/* --------------------------------------------------- */
+
+/* Añadimos transiciones por defecto a los elementos que recibirán hover */
+.main-nav a,
+.logo,
+.btn-primary,
+.article-card,
+.article-card img,
+.categories-widget a,
+.profile-pic,
+.pagination a,
+.hamburger-menu,
+.footer-col a {
+    transition: transform 200ms ease, color 200ms ease, box-shadow 220ms ease, filter 200ms ease;
+}
+
+/* Enlaces del nav y otros enlaces importantes */
+.main-nav a:hover,
+.categories-widget a:hover,
+.footer-col a:hover,
+.pagination a:hover {
+    color: var(--color-acento);
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+/* Logo interactivo */
+.logo:hover {
+    color: var(--color-acento);
+    transform: scale(1.03);
+}
+
+/* Botón primario: fondo más oscuro y sombra al pasar el mouse */
+.btn-primary:hover {
+    background-color: #0056b3; /* tono más oscuro para indicar interacción */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Card hover: eleva ligeramente y acentúa la sombra */
+.article-card {
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Imagen dentro de la card: ligero zoom y ajuste de brillo */
+.article-card img {
+    transition: transform 300ms ease, filter 200ms ease;
+}
+.article-card img:hover {
+    transform: scale(1.05);
+    filter: brightness(0.97);
+}
+
+/* Imagen de perfil en el sidebar */
+.profile-pic:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Botón hamburguesa en móvil */
+.hamburger-menu:hover {
+    color: var(--color-acento);
+    transform: scale(1.05);
+}
+
+/* Pequeño helper: foco accesible para enlaces y botones */
+a:focus, button:focus, .btn-primary:focus {
+    outline: 3px solid rgba(0,123,255,0.18);
+    outline-offset: 2px;
+}
+
+

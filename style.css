@@ -1,0 +1,203 @@
+body {
+    /* Fondo rosa */
+    background: #181717;/*el color oficial de github es #181717*/
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Detalle redondo en el fondo */
+body::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    right: -15%;
+    width: 70vw;
+    height: 70vw;
+    background: #8c8c8c;
+    border-radius: 50%;
+    z-index: 0;
+    transform: rotate(20deg);
+    opacity: 0.8;
+}
+/* style="width:110px;height:110px;border-radius:50%;border:3px solid #222;margin-top:12px;"*/
+div header img {
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:3px solid #222;
+    margin-top:12px;
+    /*para centrar*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*margen izquierdo automático hace que el margen derecho también lo sea*/
+    
+}
+
+/* Simulación de móvil centrado */
+.linktree-phone {
+    position: relative;
+    z-index: 1;
+    background: #c2c2c5;
+    width: 350px;
+    max-width: 95vw;
+    margin: 40px auto;
+    border-radius: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 32px 0 24px 0;
+    border: 6px solid #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Fondo con patrones (puedes usar imágenes SVG o PNG si tienes) */
+.linktree-phone {
+    background-image: url('pattern.png'); /* Cambia por tu patrón si tienes */
+    background-size: contain;
+    background-repeat: repeat;
+    /*padding es para que no se pegue el contenido a los bordes del "móvil"*/
+    padding: 5% 0 3% 0;
+}
+
+/* Título principal */
+.linktree-title {
+    font-family: 'Creepster', cursive, 'Poppins', Arial, sans-serif;
+    font-size: 2.1rem;
+    text-align: center;
+    margin: 0 0 8px 0;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+/* Subtítulo */
+.linktree-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #222;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    /*cursiva*/
+    font-style: italic;
+}
+
+/* Botones de links */
+.linktree-btn {
+    width: 80%;
+    background: #fff;
+    border: 2px solid #222;
+    border-radius: 22px;
+    box-shadow: 4px 6px 0 #222;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 1.1rem;
+    font-family: inherit;
+    display: flex;/*para que el icono y el texto estén en línea*/
+    align-items: center;/*centrar icono y texto verticalmente*/
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.08s, box-shadow 0.08s;
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    justify-content: center;
+    
+}
+.linktree-btn:hover{
+    background: #f0f0f0;
+    transform: scale(1.51), box-shadow 0.15s, background 0.15s;
+}
+
+.linktree-btn:active {/* Efecto de presionar botón. Active es para cuando se hace click */
+    transform: translateY(2px);
+    box-shadow: 2px 3px 0 #222;
+}
+
+/* Iconos dentro de los botones */
+.linktree-btn img,
+.linktree-btn svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+/* Botón de suscripción */
+.linktree-subscribe {
+    background: #fff;
+    border: 2px solid #222;
+    border-radius: 22px;
+    box-shadow: 4px 6px 0 #222;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 1.1rem;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #222;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Iconos sociales */
+.linktree-socials {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 18px;
+}
+
+.linktree-socials a {
+    color: #222;
+    font-size: 1.7rem;
+    transition: color 0.15s;
+}
+
+.linktree-socials a:hover {
+    color: #f47ac2;
+}
+
+/* Botón de campana */
+.linktree-bell {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 6px 18px 6px 10px;
+    border: 1.5px solid #222;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 2px 3px 0 #222;
+    cursor: pointer;
+}
+
+
+/* Pie de página */
+.linktree-footer {
+    text-align: right;
+    margin-top: 18px;
+    color: #222;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.05px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .linktree-phone {
+        width: 99vw;
+        padding: 18px 0 12px 0;
+        border-radius: 0;
+    }
+    .linktree-sample {
+        font-size: 1.3rem;
+    }
+}
