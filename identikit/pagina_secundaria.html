@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identikit Web</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <section>
+        <div class="enlaces-flex">
+            <a class="enlace" href="index.html">Inicio</a>
+            <a class="enlace" href="pagina_secundaria.html">Sobre mí</a>
+            <a class="enlace" href="tablas.html">Tierlist</a>
+            <a class="enlace" href="trivia/trivia_inicial.html">Trivia</a>
+            <a class="enlace" href="multimedia.html">Multimedia</a>
+        </div>
+    </section>
+    <section class="section-card">
+        <h1>Sobre mí</h1>
+        <h2>Conocé las cosas que me gustan</h2>
+        <div class="card-text">
+
+            <video id="video-sobre-mi" loop muted autoplay playsinline>
+                <source src="video/montaña_270940_medium.mp4" type="video/mp4" alt="Video de Montañas">
+                Tu navegador no soporta la reproducción de video.
+            </video>            
+            <div>
+                <span class="card-title">Autonomía & Responsabilidad</span>
+                Un futuro donde la humanidad pueda vivir en paz y armonía con la naturaleza, donde la tecnología sea una herramienta para el bienestar de todos. Donde la autonomía de cada individuo sea máxima.
+            </div>
+        </div>
+    </section>
+    <section class="section-card">
+        <div class="card-text">
+            <img src="img/espacio_fondo.webp" class="right-img" alt="Espacio fondo">
+            <div>
+                <span class="card-title">¿Simulación?</span>
+                La probabilidad de que estemos viviendo en una simulación es alta. La realidad es un constructo que podemos cuestionar y explorar a través de la ciencia y la filosofía.
+            </div>
+        </div>
+    </section>
+    <audio autoplay loop> <!-- Controls -> para reproducir/pausar el audio -->
+            <source src="audio/ambient-soundscapes-001-space-atmosphere-303246.mp3" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+    </audio>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Tomás Romero. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="multimedia.html">Multimedia</a> |
+                <a href="pagina_secundaria.html">Sobre mí</a> |
+                <a href="trivia/trivia_inicial.html">Trivia</a>
+            </div>
+        </div>
+    </footer>   
+</body>
+</html>

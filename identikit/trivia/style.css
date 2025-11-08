@@ -1,0 +1,75 @@
+        /* Importamos una fuente estilo pixel de Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        /* Estilos generales del cuerpo de la página */
+        body {
+            background-color: darkblue; /* Fondo negro */
+            color: #ffffff; /* Letras blancas */
+            font-family: 'Press Start 2P', cursive; /* Fuente estilo videojuego */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Usamos Flexbox para centrar el contenido */
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+            text-align: center; /* Alinea el texto al centro */
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 90%;
+        }
+
+        /* Estilo para el título principal */
+        h1 {
+            color: #ff0000; /* Color rojo para el mensaje principal */
+            font-size: 5vw; /* Tamaño de letra que se ajusta al ancho de la pantalla */
+            text-shadow: 3px 3px 0 #4a0000; /* Sombra para dar efecto 3D */
+            margin: 0;
+            animation: flicker 1.5s infinite alternate; /* Animación de parpadeo */
+        }
+
+        /* Estilo para el subtítulo o emoji */
+        p {
+            font-size: 8vw; /* Hacemos el emoji bien grande */
+            margin-top: 20px;
+        }
+
+        /* Animación de parpadeo para el texto */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 4px #ff0000,
+                    0 0 11px #ff0000,
+                    0 0 19px #ff0000,
+                    0 0 40px #ff0000,
+                    0 0 80px #ff0000;
+                color: #ff0000;
+            }
+            20%, 24%, 55% {        
+                text-shadow: none;
+                color: #fff;
+            }
+        }
+        .enlaces-flex {
+            display: flex;
+            justify-content: center;
+            margin: 30px auto 0 auto;
+        }
+        .enlace:hover {
+            text-shadow:
+                    0 0 4px #ff0000,
+                    0 0 11px #ff0000,
+                    0 0 19px #ff0000,
+                    0 0 40px #ff0000,
+                    0 0 80px #ff0000;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.2s ease;
+            transform: scale(1.5);
+        }
+
+
+
+
+        

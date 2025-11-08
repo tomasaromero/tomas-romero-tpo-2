@@ -1,0 +1,594 @@
+/* TEORÍA CSS
+Es en CASCADA, el orden importa
+
+.class { -> para varios objetos
+    propiedad: valor;
+}
+#id { -> para un sólo objeto
+    propiedad: valor;
+}
+Etiqueta { -> para todos los objetos de esa etiqueta
+    propiedad: valor;
+}
+Etiqueta, .class, #id { -> para varios objetos
+    propiedad: valor;
+}
+Etiqueta .class { -> para todos los objetos de esa etiqueta y clase
+    propiedad: valor;
+}
+Etiqueta #id { -> para todos los objetos de esa etiqueta y id
+    propiedad: valor;
+}
+.class1.class2 { -> para todos los objetos que tengan ambas clases
+    propiedad: valor;
+}
+.class1 .class2 { -> para todos los objetos con clase2 que estén dentro de un objeto con clase1
+    propiedad: valor;
+}
+.class1 > .class2 { -> para todos los objetos con clase2 que sean hijos directos de un objeto con clase1
+    propiedad: valor;
+}
+.class1 + .class2 { -> para todos los objetos con clase2 que estén inmediatamente después de un objeto con clase1
+    propiedad: valor;
+}
+
+JERARQUÍA: Inline > ID > Class > Etiqueta
+
+*/
+        body {
+            background-color: #bbb;
+            font-family: Arial, sans-serif;
+            color: #212529ff;
+            margin: 0;
+        }
+        .enlaces-flex {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 30px auto 0 auto;
+        }
+        .enlace, .enlaces-flex a {
+            text-decoration: none;
+            color: #6c757dff;
+            font-weight: bold;
+            padding: 8px 18px;
+            border-radius: 6px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        
+        .enlace:hover, .enlaces-flex a:hover {
+            background: #e9ecefff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transform: scale(1.08);
+        }
+        .main-card {
+            background: #e9ecefff;
+            margin: 32px auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 0 24px 0;
+            width: 85%;
+            max-width: 900px;
+        }
+        h1 {
+            color: #212529ff;
+            margin-top: 0;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+            text-align: center;
+            background: #dee2e6ff;
+            
+            padding: 16px 0;
+            margin-bottom: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #495057ff;
+            font-size: 1.3em;
+            margin-bottom: 18px;
+            margin-top: 10px;
+        }
+        .profile-img {
+            display: block;
+            margin: 24px auto 16px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+            max-width: 350px;
+            width: 90%;
+        }
+        .quote {
+            font-size: 1.1em;
+            text-align: center;
+            color: #6c757dff;
+            margin: 18px 0;
+            background: #f8f9faff;
+            padding: 10px 0;
+        }
+        .quote:hover {
+            box-shadow: 0 45px 55px rgba(89, 13, 240, 0.1);
+            transform: scale(1.05);
+            transition: box-shadow 0.3s, transform 0.3s;    
+        }
+        .gif-img {
+            display: block;
+            margin: 10px auto 20px auto;
+            border-radius: 5px;
+            max-width: 880px;
+            width: 100%;
+
+        }
+        .interes-card {
+            background: #f8f9faff;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: left;
+            flex: 1;                 /* Para que ocupe el espacio disponible */
+            min-width: 250px;        /* Un ancho mínimo para que no se aplaste */
+        }
+        .interes-card h3 {
+            color: #212529ff;
+            margin-bottom: 10px;
+            
+        }
+        .interes-links{
+            text-decoration: none;
+        } 
+        .interes-links img {
+            margin: 0 12px;
+            border-radius: 5px;
+            vertical-align: middle;
+            
+            
+        }
+        .interes-links img:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transform: scale(1.08);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+         
+        }
+        .contacto-card {
+            background: #f8f9faff;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: left;
+            flex: 1;                 /* Para que ocupe el espacio disponible */
+            min-width: 250px;        /* Un ancho mínimo para que no se aplaste */
+        }
+        .contacto-card h3 {
+            color: #212529ff;
+            margin-bottom: 10px;
+        }
+        .contacto-card img {
+            border-radius: 5px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+            vertical-align: middle;
+        }
+        .contacto-card img:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transform: scale(1.08);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        /*Sobre Mí*/
+        .flex-container {
+            display: flex;
+            width: 85%;                /* Para alinear con la tarjeta principal */
+            max-width: 900px;          /* Para alinear con la tarjeta principal */
+            margin: 32px auto;         /* Para centrarlo y darle espacio */
+            gap: 24px;                 /* Espacio entre las dos tarjetas */
+            justify-content: center;
+        }
+        .section-card {
+            background-color: #e9ecefff;
+            margin: 32px auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 0 24px 0;
+            width: 85%;
+            max-width: 900px;
+        }
+        .card-text {
+            background-color: #f8f9faff;
+            width: 80%;
+            min-height: 130px;
+            text-align: left;
+            margin: 0 auto 10px auto;
+            padding: 18px 18px 18px 18px;
+            border: 1px solid #dee2e6ff;
+            border-radius: 8px;
+            overflow: hidden; /* <-- fuerza que el contenedor incluya elementos flotantes */
+        }
+
+        /* Estilos para el footer */
+        footer {
+            background: #e9ecefff;
+            padding: 20px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.07);
+        }
+
+        .footer-content {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: #495057ff;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #6c757dff;
+            text-decoration: none;
+            padding: 0 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #212529ff;
+        }
+        .card-text:hover{
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transform: scale(1.02);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .card-text img {
+            height: 100px;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        }
+        .card-text .left-img {
+            float: left;
+            margin-right: 18px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .card-text .right-img {
+            float: right;
+            margin-left: 18px;
+        }
+        .card-title {
+            font-size: 1.15em;
+            color: #212529ff;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        /*Tierlist*/
+        table {
+            
+            width: 60%;
+            margin: 30px auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: #f8f9faff; /* --seasalt */
+            border-radius: 8px; /* Ajustado para que se vea mejor */
+            border-collapse: separate; /* Permite espacio entre celdas */
+            border-spacing: 5px; /* Define el espacio entre las celdas */
+
+        }
+        th, td {
+            border: 0px solid #bbb; /* Bordes eliminados */
+            padding: 10px 16px;
+            text-align: center;
+            border-radius: 10px; /* Bordes redondeados */
+            margin: 10%; /* Espacio entre celdas */
+            
+        }
+        th {
+            background: #dee2e6ff; /* --platinum */
+            font-weight: bold;
+        }
+        tr:nth-child(even) td {
+            background: #e9ecefff; /* --antiflash-white */
+        }
+        tr:hover td { /* Cuando pasa por encima el mouse*/
+            background: #ced4daff; /* --french-gray */
+        }
+        caption {
+            caption-side: top;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        /*Reseñas*/
+        .profile-img {
+            display: block;
+            margin: 24px auto 16px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+            max-width: 350px;
+            width: 90%;
+        }
+        .reseña-text {
+            font-size: 1.1em;
+            color: #495057ff;
+            background: #f8f9faff;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 24px auto;
+            width: 80%;
+            max-width: 700px;
+            text-align: left;
+        }
+        .enlaces-relacionados {
+            margin: 24px auto;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+        }
+        .enlaces-relacionados a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: #6c757dff;
+            font-weight: bold;
+            padding: 8px 18px;
+            border-radius: 6px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .enlaces-relacionados a:hover {
+            background: #e9ecefff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transform: scale(1.08);
+        }
+/*Trivia*/
+        
+        .body_trivia {
+            background: #f8f9faff; /* --seasalt */
+            font-family: Arial, sans-serif;
+            color: #212529ff; /* --eerie-black */
+            text-align: center;
+            padding: 0px;
+        }
+        .h1_trivia {
+            color:#212529ff; 
+            background-color: #e9ecefff; 
+            display:block; 
+            text-align: center;
+            border-radius: 10px;
+        }
+        .enlaces-flex {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 30px auto 0 auto;
+        }
+        .enlace:hover {
+            background: #e9ecefff; /* --antiflash-white */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform: scale(1.15);
+        }
+
+        /* Estilos para la tabla del juego */
+        .trivia-table {
+            border-collapse: separate; /* Permite espacio entre celdas */
+            border-spacing: 15px; /* Define el espacio entre las celdas (cartas) */
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        /* Estilo para cada celda, que actúa como una "carta" */
+        .card {
+            background: #e9ecefff; /* --antiflash-white */
+            border-radius: 10px; /* Bordes redondeados para la carta */
+            padding: 10px; /* Un pequeño espacio interno */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 20%;
+            height: 20%;
+        }
+        .card:hover {
+            transform: scale(1.5); /* Agranda la carta al pasar el mouse */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card_principal {
+            background: #e9ecefff; /* --antiflash-white */
+            border-radius: 10px; /* Bordes redondeados para la carta */
+            padding: 10px; /* Un pequeño espacio interno */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 40%;
+        }
+        .card_principal:hover {
+            transform: scale(1.1); /* Agranda la carta al pasar el mouse */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Estilos para las imágenes dentro de las cartas */
+        .card img {
+            width: 100%;
+            display: block; /* Elimina espacio extra debajo de la imagen */
+            border-radius: 5px; /* Bordes redondeados para la imagen */
+        }
+
+    
+        /*Trivia Felicitaciones*/
+            .main-card {
+                background: #e9ecefff;
+                margin: 32px auto;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+                padding: 32px 0 24px 0;
+                width: 85%;
+                max-width: 900px;
+                text-align: center;
+            }
+            .descuento-card {
+                background: #f8f9faff;
+                border-radius: 8px;
+                padding: 18px;
+                margin: 24px auto;
+                width: 80%;
+                max-width: 700px;
+                color: #495057ff;
+                font-size: 1.2em;
+            }
+            .descuento-img {
+                display: block;
+                margin: 24px auto 16px auto;
+                border-radius: 10px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+                max-width: 820px;
+                width: 60%;
+            }
+            #enlace-desuentos-carrefour{
+                display: flex;
+                justify-content: space-between;
+                width: 80%;
+                margin: 0 auto 0 auto;
+                text-decoration: none;
+                color: rgb(255, 0, 0);
+                background-color: rgb(7, 10, 191);
+                font-weight: bold;
+                padding: 8px 18px;
+                border-radius: 6px;
+                transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            }
+            #enlace-desuentos-carrefour:hover {
+                background: rgb(7, 10, 191);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                transform: scale(1.08);
+            }
+
+        /* Lista Descuentos */
+        ol.custom-ol {
+            counter-reset: custom-counter;
+        
+        }
+        ol.custom-ol > li {
+            list-style: none;
+            counter-increment: custom-counter;
+            background: #dee2e6;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            padding: 22px 32px 12px 52px;
+            position: relative;
+            font-weight: bold;
+        }
+        ol.custom-ol > li::before {
+            position: absolute;
+            left: 0px;
+            top: 18px;
+            font-size: 1.3em;
+            color: #6c757d;
+            content: ''; /* 5. DEBE estar vacío, es solo un contenedor */
+
+            background-image: url('img/carrito-super.jpg'); /* 6. La ruta a tu imagen */
+            background-size: contain; /* 7. Asegura que la imagen quepa completa*/
+            background-repeat: no-repeat; /* 8. Evita que la imagen se repita */
+            width: 30px;  /* 9. Ancho del ícono */
+            height: 30px; /* 10. Alto del ícono */
+            /* --- Posicionamiento --- */
+            position: absolute; /* 11. Lo sacamos del flujo normal */
+            left: 5px;            /* 12. Lo pegamos al borde izquierdo */
+            top: 18px;             /* 13. Lo alineamos arriba (puedes ajustarlo) */
+            border-radius: 100%;
+        }
+
+        ul.custom-ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding-left: 22px;
+        }
+        ul.custom-ul > li {
+            background: #e9ecef;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            padding: 10px 16px;
+            list-style: none;
+            font-weight: normal;
+            color: #495057;
+            transition: background 0.2s;
+        }
+        ul.custom-ul > li:hover {
+            background: #ced4da;
+            list-style: none;
+            color: #212529;
+            font-weight: bold;  
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            
+        }
+        @media (max-width: 700px) {
+            .lista-contenedor {
+                width: 95%;
+                padding: 15px 5px;
+            }
+        }
+        /* Multimedia */
+.contenedor-media {
+    width: 80%;
+    margin: 20px auto; 
+    overflow: auto; /* para que el div contenga los elementos flotantes */
+    padding: 15px;
+    background-color: #f8f9faff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+.media-imagen {
+    width: 200px;
+    height: auto;
+    float: left; 
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.descripcion-media {
+    /* El texto fluirá alrededor de la imagen flotante */
+    text-align: left;
+    line-height: 1.6;
+}
+
+.contenedor-video {
+    width: 80%;
+    margin: 30px auto; 
+    text-align: center; /* Centra el iframe si es un elemento inline-block */
+    padding: 15px;
+    background-color: #f8f9faff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+#video-sobre-mi {
+    margin-right: 28px;
+    float: left; /* <-- CAMBIO: permitir que el video flote a la izquierda */
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    height: 103px;
+}
+.video-embed {
+    height: 200px;
+    display: block; /* Para que margin: auto lo centre si es necesario */
+    margin-right: 15px;
+    border-radius: 8px;
+}
+.lista-musica {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 16px;
+}
+.lista-musica .item {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #e9ecef;
+    padding: 10px;
+    margin-bottom: 14px;
+    
+}
+#video-multimedia {
+    margin-right: 28px;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    height: 203px;
+}
+
+        
+
+
+
+
+

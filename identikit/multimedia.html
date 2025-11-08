@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Contenido Multimedia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="enlaces-flex">
+            <a class="enlace" href="index.html">Inicio</a>
+            <a class="enlace" href="pagina_secundaria.html">Sobre mí</a>
+            <a class="enlace" href="tablas.html">Tierlist</a>
+            <a class="enlace" href="trivia/trivia_inicial.html">Trivia</a>
+            <a class="enlace" href="multimedia.html">Multimedia</a>
+        </div>
+    </section> 
+
+    <section class="section-card">
+        <h1>Un Universo Sonoro y Visual</h1>
+        <h2>Explora la colección de audios y videos</h2>
+
+        <div class="card-text">
+            <span class="card-title">Sonidos Ambiente</span>
+            <span>Una pieza seleccionada para acompañarte en esta sección.</span>
+            <ul class="lista-musica">
+                <li class="item">
+                    <audio controls loop preload="auto" style="width: 250px; margin-bottom:6px;">
+                        <source src="audio/inicio-ambient-soundscapes-004-space-atmosphere-303243.mp3" type="audio/mpeg">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio><br>
+                    <i class="fa-solid fa-compact-disc"></i> Base Inspiradora #1 - Navegante Cósmico
+                </li>
+                <li class="item">
+                    <audio controls loop preload="auto" style="width: 250px; margin-bottom:6px;">
+                        <source src="audio/ambient-soundscapes-001-space-atmosphere-303246.mp3" type="audio/mpeg">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio><br>
+                    <i class="fa-solid fa-compact-disc"></i> Base Relajante #2 - Inmensidad
+                </li>
+                <li class="item">
+                    <audio controls loop preload="auto" style="width: 250px; margin-bottom:6px;">
+                        <source src="audio/sobre-mi-ambient-soundscapes-007-space-atmosphere-304974.mp3" type="audio/mpeg">
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio><br>
+                    <i class="fa-solid fa-compact-disc"></i> Base Tensión #3 - Suspenso Tensión
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-text">
+            <iframe class="video-embed"  src="https://www.youtube.com/embed/SY_mFPgz4Y8?si=W2nRq_fpxHqcjiY-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div>
+                <span class="card-title">Documental Fascinante del Espacio</span>
+                Documental producido por National Geographic ofrece una exploración visual y narrativa del universo conocido, desde la Tierra hasta los confines más remotos del espacio observable.
+            </div>
+        </div>
+
+        <div class="card-text">
+            <video id="video-multimedia" loop muted autoplay playsinline>
+                <source src="video/montaña_270940_medium.mp4" type="video/mp4" alt="Video de Montañas">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+            <div>
+                <span class="card-title">La Tierra</span>
+                Maravillas de la Tierra, una vista impresionante. Biomas y ecosistemas que parecen de otros planetas.
+            </div>
+        </div>
+        <div class="card-text">
+            <video id="video-multimedia" loop muted autoplay playsinline>
+                <source src="video/correr-15748-266043652_small.mp4" type="video/mp4" alt="Video de Montañas">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+            <div>
+                <span class="card-title">Nosotros</span>
+                Una pausa, levanta la vista. Dejarnos asombrar por la increíble belleza de nuestro planeta y la silenciosa majestuosidad del universo que nos rodea. No sólo podemos redescubrir nuestro lugar en el cosmos, sino que es poder reconectarnos con la esencia más profunda de lo que significa estar vivos.
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Tomás Romero. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="multimedia.html">Multimedia</a> |
+                <a href="pagina_secundaria.html">Sobre mí</a> |
+                <a href="trivia/trivia_inicial.html">Trivia</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

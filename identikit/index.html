@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identikit Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="enlaces-flex">
+            <a class="enlace" href="index.html">Inicio</a>
+            <a class="enlace" href="pagina_secundaria.html">Sobre mí</a>
+            <a class="enlace" href="tablas.html">Tierlist</a>
+            <a class="enlace" href="trivia/trivia_inicial.html">Trivia</a>
+            <a class="enlace" href="multimedia.html">Multimedia</a>
+        </div>
+    </section>
+    <section class="main-card">
+        <h1>Mi nombre es Tomás Romero</h1>
+        <h2>Bienvenido a mi página <span style="color:#343a40ff; background-color: #dee2e6ff; border-radius:4px; padding:2px 8px;">WEB</span></h2>
+        <img src="img/OIP.webp" alt="Foto de Tomás Romero" class="profile-img">
+        <blockquote class="quote"><i><b>Somos polvo de estrellas que piensa acerca de las estrellas.</b></i></blockquote>
+        <!-- "<i>"-> para cursiva -->  
+        <img src="img/espacio_gif.gif" alt="Gif del espacio" class="gif-img">
+        <audio autoplay loop> <!-- Controls -> para reproducir/pausar el audio -->
+            <source src="audio/inicio-ambient-soundscapes-004-space-atmosphere-303243.mp3" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>       
+    </section>
+    <div class="flex-container">
+        <section class="interes-card">
+            <h3>Mis páginas de Interés</h3>
+            <div class="interes-links">
+                <a href="https://www.youtube.com/@lexfridman" class="interes-links" target="_blank">
+                    <img src="img/Lex_Fridman.jpg" width="65" alt="Lex Fridman">
+                </a>
+                <a href="https://www.youtube.com/watch?v=KxIeJjEGLdo&t" class="interes-links" target="_blank">
+                    <img src="img/DwarkeshPatel_podcast.jpg" width="65" alt="Dwarkesh Patel">
+                </a>
+                <a href="https://www.youtube.com/@DwarkeshPatel"class="interes-links" target="_blank">
+                    <img src="img/podcast_3.jpg"  width="65" alt="Dwarkesh Patel">
+                </a>                           
+            </div>
+        </section>
+        <section class="contacto-card">
+            <h3>Contacto</h3>
+            <div class="interes-links">
+                <a href="https://www.github.com/tomasaromero" class="interes-links" target="_blank">
+                    <img src="img\github_logo.jpg"  alt="Github de Tomás Romero" width="65">
+                </a>
+                <a href="https://www.github.com/tomasaromero" class="interes-links" target="_blank">
+                    <img src="img\github_logo.jpg" alt="Github de Tomás Romero" width="65">
+                </a>
+
+            </div>
+        </section>
+    </div>
+    <script src="js/main.js"></script>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Tomás Romero. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="multimedia.html">Multimedia</a> |
+                <a href="pagina_secundaria.html">Sobre mí</a> |
+                <a href="trivia/trivia_inicial.html">Trivia</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,6 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0; /* En los costados del body */
+    padding: 0; /* En la parte superior e inferior del body */
+}
