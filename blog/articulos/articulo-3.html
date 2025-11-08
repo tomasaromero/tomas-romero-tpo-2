@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guía rápida: Deploy con Netlify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body style="background-color: black; background-size: cover; background-attachment: fixed;">
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="../identikit/img/github_logo.jpg" class="logo">Mi Blog </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../pagina-1.html">Inicio</a></li>
+                    <li><a href="../pagina-1.html">Publicaciones</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../pagina-1.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" aria-label="Abrir menú">☰</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="article-card article-narrow" style="margin-top:40px;">
+            <picture>
+                <img src="../../identikit/img/guia-netlify.webp" alt="Guía Netlify">
+            </picture>
+            <div class="card-content">
+                <br>
+                <span class="category-badge">Tutoriales</span>
+                <h1>Guía rápida: Deploy con Netlify</h1>
+                <p class="byline"><time datetime="2025-10-20">20 de Octubre, 2025</time></p>
+
+                <p>Si vienes del mundo del hosting tradicional (subir archivos por FTP, gestionar servidores), el despliegue (deploy) de sitios estáticos modernos puede parecer magia. Netlify es una de las plataformas líderes que ha simplificado este proceso al extremo, integrando el despliegue continuo (CI/CD) directamente con tu repositorio de Git.</p>
+
+                <p>En esta guía, desplegaremos un sitio estático en minutos.</p>
+
+                <h2>Paso 1: Prerrequisitos</h2>
+                <p><strong>Un sitio estático:</strong> Puede ser HTML/CSS/JS simple, o un proyecto construido con un generador como React (Create React App), Vue, Astro o Svelte.</p>
+                <p><strong>Un repositorio en Git:</strong> Tu código debe estar alojado en GitHub, GitLab o Bitbucket.</p>
+                <p><strong>Una cuenta en Netlify:</strong> Registrarse es gratis.</p>
+
+                <h2>Paso 2: Conectar tu Repositorio</h2>
+                <p>Una vez dentro de tu panel de Netlify: haz clic en "Add new site" → "Import an existing project". Conecta tu proveedor de Git (ej. GitHub) y autoriza a Netlify. Selecciona el repositorio que quieres desplegar.</p>
+
+                <h2>Paso 3: Configurar el Build</h2>
+                <p>Aquí es donde Netlify necesita saber cómo "construir" tu sitio (si no es HTML simple).</p>
+                <ul>
+                    <li><strong>Branch to deploy:</strong> Generalmente <code>main</code> o <code>master</code>.</li>
+                    <li><strong>Build command:</strong> Si usas React o Vue, aquí pondrías <code>npm run build</code>. Si es HTML simple, puedes dejarlo vacío.</li>
+                    <li><strong>Publish directory:</strong> Es la carpeta que genera el comando anterior. En React (CRA) es <code>build</code>, en Vite es <code>dist</code>. Si es HTML simple, es el directorio raíz (<code>.</code>).</li>
+                </ul>
+
+                <h2>Paso 4: ¡Deploy!</h2>
+                <p>Haz clic en "Deploy site". Netlify clonará tu repositorio, ejecutará el comando de construcción (si lo hay) y desplegará los archivos del directorio de publicación en su CDN global. En menos de un minuto, te dará una URL aleatoria (ej. <em>tu-sitio-genial.netlify.app</em>) donde tu sitio ya está en línea.</p>
+
+                <h2>Paso 5 (Extra): La Magia del CI/CD</h2>
+                <p>Ahora viene lo mejor. Realiza un cambio en tu código local, haz <code>git commit</code> y luego <code>git push</code> a tu rama <code>main</code>. Netlify detectará automáticamente ese push, volverá a ejecutar el proceso de build y actualizará tu sitio en vivo. No necesitas hacer nada más.</p>
+
+                <h2>Conclusión</h2>
+                <p>Netlify elimina toda la fricción del despliegue. Con funciones adicionales como deploy previews (una vista previa por cada pull request), manejo de formularios y HTTPS automático, se ha convertido en la herramienta de referencia para el desarrollo web moderno estático.</p>
+                <br><br>
+                <p><a class="btn-primary" href="../pagina-1.html">Volver a Publicaciones</a></p>
+                <br>
+            </div>
+        </article>
+    </main>
+    <br>
+    <footer class="site-footer" id="contacto">
+        <br>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h4>Contacto </h4>
+                <p>Email: tomasromero@miblog.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos </h4>
+                <ul>
+                    <li><a href="../pagina-1.html">Inicio</a></li>
+                    <li><a href="../pagina-2.html">Publicaciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociales </h4>
+                <a href="https://github.com/tomasaromero">LinkedIn</a> | <a href="https://github.com/tomasaromero">GitHub</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

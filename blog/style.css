@@ -1,14 +1,12 @@
-/* FASE 3: CONFIGURACIÓN BASE Y ESTILOS [cite: 67, 68] */
-
-/* Definición de la paleta de colores (inspirado en OnyxPulse/Checklist) */
+/* Paleta de colores (inspirado en OnyxPulse) */
 :root {
     --color-primario: #0a0a0a; /* Negro/Gris oscuro para texto y header */
     --color-secundario: #f4f4f4; /* Gris claro para fondo */
     --color-acento: #007bff;     /* Azul para botones y enlaces */
     --color-texto: #333;
     --color-fondo: #ffffff;
-    --fuente-titulos: 'Montserrat', sans-serif; /* [cite: 17] */
-    --fuente-texto: 'Lato', sans-serif;         /* [cite: 18] */
+    --fuente-titulos: 'Montserrat', sans-serif; 
+    --fuente-texto: 'Lato', sans-serif;         
 }
 
 /* Reseteo básico */
@@ -38,7 +36,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- ESTILOS DEL HEADER [cite: 70] --- */
+/* ESTILOS DEL HEADER  */
 .site-header {
     background-color: var(--color-fondo);
     padding: 20px 0;
@@ -52,13 +50,13 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-/* Evitar que el contenido quede oculto bajo la cabecera fija */
+
 main {
-    padding-top: 80px; /* ajustar según el alto real del header si es necesario */
+    padding-top: 80px; 
 }
 
 .header-container {
-    display: flex; /* Uso de Flexbox [cite: 70] */
+    display: flex; 
     justify-content: space-between;
     align-items: center;
 }
@@ -72,7 +70,7 @@ main {
 }
 
 .main-nav ul {
-    display: flex; /* Menú horizontal con Flexbox [cite: 71] */
+    display: flex; /* Menú horizontal con Flexbox */
     list-style: none;
     gap: 25px;
 }
@@ -85,14 +83,14 @@ main {
 }
 
 .hamburger-menu {
-    display: none; /* Oculto en escritorio [cite: 81] */
+    display: none; /* Oculto en escritorio  */
     font-size: 28px;
     background: none;
     border: none;
     cursor: pointer;
 }
 
-/* --- ESTILOS DEL HERO --- */
+/* ESTILOS DEL HERO  */
 .hero {
     text-align: center;
     padding: 40px 20px;
@@ -104,14 +102,13 @@ main {
     font-size: 42px;
 }
 
-/* Suavizar borde del contenedor del título principal */
+
 .hero {
     border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 12px; /* leve curva en las esquinas */
+    border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
 
-/* Estética mejorada para la sección de texto con listas (about) */
 .section-card {
     background-color: rgba(255,255,255,0.95);
     margin: 24px auto;
@@ -145,7 +142,7 @@ main {
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
-/* --- LAYOUT PRINCIPAL (Flexbox) [cite: 72] --- */
+/* --- LAYOUT PRINCIPAL --- */
 .main-content-area {
     display: flex; /* REQUISITO CLAVE: Flexbox para contenido + sidebar [cite: 72] */
     gap: 30px;
@@ -170,15 +167,15 @@ main {
     min-width: 280px; /* Ancho mínimo */
 }
 
-/* --- GRILLA DE ARTÍCULOS (Flexbox) [cite: 73] --- */
+/*  GRILLA DE ARTÍCULOS   */
 .article-grid {
     display: flex;
-    flex-wrap: wrap; /* REQUISITO CLAVE: flex-wrap [cite: 73] */
-    gap: 20px;
+    flex-wrap: wrap; 
+    gap: 20px; 
 }
 .article-grid {
     display: flex;
-    flex-wrap: wrap; /* REQUISITO CLAVE: flex-wrap [cite: 73] */
+    flex-wrap: wrap; 
     gap: 20px;
     justify-content: center; /* centrar columnas dentro del contenedor */
 }
@@ -186,7 +183,7 @@ main {
 .article-card {
     /* En escritorio, 2 columnas (50% - gap) */
     flex-basis: calc(50% - 10px);
-    max-width: 400px; /* evita que crezcan demasiado al centrar */
+    max-width: 1000px; 
     background-color: var(--color-fondo);
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -195,20 +192,21 @@ main {
     display: flex;
     flex-direction: column;
     align-items: stretch; /* asegurar que los hijos (picture, .card-content) ocupen todo el ancho */
-    text-align: center; /* centra el texto dentro de la tarjeta */
-    margin: 0 auto; /* garantiza centrado en casos de ancho menor */
+    text-align: center; 
+    margin: 0 auto; 
 }
 
 .article-card img {
+    /* la tarjeta (.article-card) controlará el recorte con overflow:hidden */
     width: 100%;
     height: 250px;
     display: block; /* elimina espacio inferior indeseado */
     padding: 0;
     margin: 0;
-    border-radius: 0;    /* la tarjeta (.article-card) controlará el recorte con overflow:hidden */
+    border-radius: 0;    
 }
 
-/* Asegurar que el elemento picture ocupe todo el ancho dentro de la tarjeta */
+/* Asegura que el elemento picture ocupe todo el ancho dentro de la tarjeta */
 .article-card picture {
     display: block;
     width: 100%;
@@ -216,14 +214,34 @@ main {
 
 .card-content {
     width: 100%; /* asegura que el contenido ocupe todo el ancho de la tarjeta */
+    text-align:left; 
+    padding:24px;
 }
 
-/* Alinea la bajada/texto introductorio a la derecha (no afecta títulos) */
+
 .card-content p {
-    padding-right: 20px; /* espacio interior hacia la derecha si se necesita */
-    text-align: right; /* alinear la bajada a la derecha */
+    padding-right: 55px;
+    padding-left: 15px;
+    text-align: left; 
 }
 
+    /* Variante para páginas de artículo individuales: tarjeta un poco más estrecha
+       para evitar que en algunos diseños responsive quede un borde blanco a la derecha
+       de la imagen de portada. Aplicar la clase `article-narrow` al elemento
+       <article class="article-card article-narrow"> */
+    .article-card.article-narrow {
+        max-width: 840px; 
+    }
+    .article-card.article-narrow picture,
+    .article-card.article-narrow picture img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+    }
+    .article-card.article-narrow .card-content {
+        padding: 0px 20px; /* espacio interior coherente para lectura */
+        text-align: left; /* el contenido del artículo queda alineado a la izquierda */
+    }
 .category-badge {
     display: inline-block;
     background-color: var(--color-acento);
@@ -235,6 +253,7 @@ main {
 }
 
 .article-card h3 {
+    padding: 5px;
     font-family: var(--fuente-titulos);
     font-size: 22px;
     margin: 10px 0;
@@ -245,7 +264,7 @@ main {
     color: #777;
 }
 
-/* --- PAGINACIÓN --- */
+/*  PAGINACIÓN  */
 .pagination {
     display: flex;
     justify-content: space-between;
@@ -261,7 +280,7 @@ main {
     color: var(--color-acento);
 }
 
-/* --- SIDEBAR --- */
+/* SIDEBAR */
 .widget {
     background-color: var(--color-fondo);
     padding: 20px;
@@ -369,6 +388,7 @@ main {
     cursor: pointer;
     font-size: 16px;
     font-weight: 700;
+    text-decoration: none;
 }
 
 .categories-widget ul {
@@ -381,16 +401,16 @@ main {
     text-decoration: none;
 }
 
-/* --- FOOTER [cite: 75] --- */
+/* FOOTER  */
 .site-footer {
-    background-color: var(--color-primario);
+    background-color: var(--color-texto);
     color: var(--color-secundario);
-    margin-top: 40px;
-    padding-top: 30px;
+    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .footer-container {
-    display: flex; /* Flexbox para columnas [cite: 75] */
+    display: flex; /* Flexbox para columnas */
     justify-content: space-between;
     flex-wrap: wrap; /* Para que se apilen en móvil */
     gap: 20px;
@@ -423,31 +443,38 @@ main {
 }
 
 
-/* --------------------------------------------------- */
-/* FASE 3: RESPONSIVE DESIGN [cite: 76]                */
-/* --------------------------------------------------- */
+/* FASE 3: RESPONSIVE DESIGN*/
 
-/* --- TABLETS (768px - 1024px) [cite: 79] --- */
-/* (El diseño de 2 columnas se mantiene bien, así que no hay muchos cambios aquí) */
+/* --- TABLETS (768px - 1024px)  --- */
+@media (min-width: 768px) {
+  .article-card {
+    flex-basis: calc(70% - 30px); 
+    max-width: none;
+    
+  }
+  .article-grid {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+}
 
-/* --- MÓVILES (< 768px) [cite: 78] --- */
 @media (max-width: 767px) {
     
     .main-nav {
-        display: none; /* Oculta el menú normal [cite: 81] */
+        display: none; /* Oculta el menú normal */
         /* (Se necesitaría JavaScript para mostrarlo al pulsar el botón) */
     }
 
     .hamburger-menu {
-        display: block; /* Muestra el botón hamburguesa [cite: 81] */
+        display: block; 
     }
 
     .main-content-area {
         flex-direction: column; /* Apila el contenido principal */
     }
 
-    /* REQUISITO CLAVE CUMPLIDO:
-       "Cuando sea muy angosta, el side content deja de ser visto."
+    /*
+       Cuando sea muy angosta, el side content deja de ser visto.
     */
     .sidebar {
         display: none; 
@@ -458,7 +485,7 @@ main {
     }
 
     .article-card {
-        flex-basis: 100%; /* Cada artículo ocupa el 100% */
+        flex-basis: 100%; 
     }
 
     .footer-container {
@@ -467,9 +494,7 @@ main {
     }
 }
 
-/* --------------------------------------------------- */
 /* HOVERS Y TRANSICIONES (efectos visuales suaves)     */
-/* --------------------------------------------------- */
 
 /* Añadimos transiciones por defecto a los elementos que recibirán hover */
 .main-nav a,
@@ -542,5 +567,68 @@ a:focus, button:focus, .btn-primary:focus {
     outline: 3px solid rgba(0,123,255,0.18);
     outline-offset: 2px;
 }
+/* Pequeños estilos para la tarjeta de agradecimiento */
+.thankcard {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--color-fondo);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.thankcard h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+.thankcard p {
+    font-size: 16px;
+    color: var(--color-texto);
+    margin-bottom: 18px;
+}
+.thank-actions {
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+.btn-secondary {
+    background: #f4f4f4;
+    color: var(--color-primario);
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-weight:700;
+}
 
+/* --- ESTILOS PARA BLOQUES DE CÓDIGO --- */
+pre {
+    background-color: #212529; 
+    color: #f8f9fa;            /* Texto blanco */
+    padding: 18px;
+    margin: 5%;
+    border-radius: 8px;
+    overflow-x: auto;          /* scroll por si el código es largo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 1px solid #444;
+}
 
+pre code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+}
+
+/* Estilos para código inline (ej. `useState`) */
+:not(pre) > code {
+    background-color: #e9ecef; /* Fondo gris claro */
+    color: #c7254e;            /* Color de texto oscuro/rosado */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}

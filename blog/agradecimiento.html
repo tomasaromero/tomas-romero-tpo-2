@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por suscribirte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: black; background-size: cover; background-attachment: fixed;">
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">Mi Blog </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pagina-1.html">Inicio</a></li>
+                    <li><a href="pagina-1.html">Publicaciones</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" aria-label="Abrir menú">☰</button>
+        </div>
+    </header>
+    <br><br><br><br>
+    <main class="container">
+        <div class="thankcard" role="main" aria-labelledby="thank-title">
+            <h1 id="thank-title">¡Gracias por suscribirte!</h1>
+            <p id="thank-msg">Hemos recibido tu suscripción. ¡Bienvenido/a a la comunidad! Revisa tu correo para confirmar y recibir novedades.</p>
+            <div class="thank-actions">
+                <a class="btn-primary" href="pagina-1.html">Volver al inicio</a>
+                <a class="btn-secondary" href="pagina-1.html#contacto">Contactar</a>
+            </div>
+        </div>
+    </main>
+    <br><br><br><br><br><br><br><br><br>
+    <footer class="site-footer" id="contacto">
+        <br>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h4>Contacto </h4>
+                <p>Email: tomasromero@miblog.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos </h4>
+                <ul>
+                    <li><a href="pagina-1.html">Inicio</a></li>
+                    <li><a href="pagina-2.html">Publicaciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociales </h4>
+                <a href="https://github.com/tomasaromero"> LinkedIn</a> | <a href="https://github.com/tomasaromero">GitHub</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Opcional: mostrar nombre si viene en la querystring (?nombre=...)
+        (function(){
+            try {
+                const params = new URLSearchParams(location.search);
+                const nombre = params.get('nombre');
+                if(nombre) {
+                    const msg = document.getElementById('thank-msg');
+                    msg.textContent = `Gracias, ${decodeURIComponent(nombre)}. Hemos recibido tu suscripción. Revisa tu correo para confirmar.`;
+                }
+            } catch(e){}
+        })();
+    </script>
+
+</body>
+</html>
