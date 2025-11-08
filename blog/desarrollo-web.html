@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: black; background-size: cover; background-attachment: fixed;">
+<body style="background-size: cover; background-attachment: fixed;">
 
     <header class="site-header">
         <div class="container header-container">
@@ -44,11 +44,17 @@
                     <article class="article-card">
                         <picture>
                             <source media="(max-width: 600px)" srcset="https://via.placeholder.com/400x300.png?text=Articulo+2+Móvil">
-                            <img src="../identikit/img/interfaces-desarrollo-web.jpg" alt="Descripción del artículo 2">
+                            <a href="articulos/articulo-2.html">
+                                <img src="../identikit/img/interfaces-desarrollo-web.jpg" alt="Descripción del artículo 2">
+                            </a>
                         </picture>
                         <div class="card-content">
                             <span class="category-badge">Desarrollo Web</span>
-                            <h3>Construyendo interfaces accesibles</h3>
+                            <h3>
+                                <a href="articulos/articulo-2.html" style="text-decoration: none; color: inherit;">
+                                    Construyendo interfaces accesibles
+                                </a>
+                            </h3>
                             <p>Buenas prácticas y herramientas para mejorar la accesibilidad en la web.</p>
                             <time datetime="2025-10-22">22 de Octubre, 2025</time>
                         </div>

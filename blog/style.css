@@ -1,9 +1,9 @@
 /* Paleta de colores (inspirado en OnyxPulse) */
 :root {
     --color-primario: #0a0a0a; /* Negro/Gris oscuro para texto y header */
-    --color-secundario: #f4f4f4; /* Gris claro para fondo */
+    --color-secundario: #000000; /* Gris claro para fondo */
     --color-acento: #007bff;     /* Azul para botones y enlaces */
-    --color-texto: #333;
+    --color-texto: #626262;
     --color-fondo: #ffffff;
     --fuente-titulos: 'Montserrat', sans-serif; 
     --fuente-texto: 'Lato', sans-serif;         

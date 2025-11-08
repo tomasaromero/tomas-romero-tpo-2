@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: black; background-size: cover; background-attachment: fixed;">
+<body style="background-size: cover; background-attachment: fixed;">
 
     <header class="site-header">
         <div class="container header-container">
@@ -44,11 +44,17 @@
                     <article class="article-card">
                         <picture>
                             <source media="(max-width: 600px)" srcset="https://via.placeholder.com/400x300.png?text=Articulo+1+Móvil">
-                            <img src="../identikit/img/ia.webp" alt="Descripción del artículo 1">
+                            <a href="articulos/articulo-1.html">
+                                <img src="../identikit/img/ia.webp" alt="Descripción del artículo 1">
+                            </a>
                         </picture>
                         <div class="card-content">
                             <span class="category-badge">Tecnología</span>
-                            <h3>Cómo la IA está transformando la industria</h3>
+                            <h3>
+                                <a href="articulos/articulo-1.html" style="text-decoration: none; color: inherit;">
+                                    Cómo la IA está transformando la industria
+                                </a>
+                            </h3>
                             <p>Reflexiones sobre el impacto de la inteligencia artificial en productos y servicios.</p>
                             <time datetime="2025-10-24">24 de Octubre, 2025</time>
                         </div>
