@@ -1,5 +1,5 @@
 body {
-    /* Fondo rosa */
+
     background: #181717;/*el color oficial de github es #181717*/
     min-height: 100vh;
     margin: 0;
@@ -54,12 +54,12 @@ div header img {
     align-items: center;
 }
 
-/* Fondo con patrones (puedes usar imágenes SVG o PNG si tienes) */
+
 .linktree-phone {
-    background-image: url('pattern.png'); /* Cambia por tu patrón si tienes */
+    background-image: url('pattern.png'); 
     background-size: contain;
     background-repeat: repeat;
-    /*padding es para que no se pegue el contenido a los bordes del "móvil"*/
+    /*padding es para que no se pegue el contenido a los bordes*/
     padding: 5% 0 3% 0;
 }
 

@@ -3,7 +3,7 @@
 
         /* Estilos generales del cuerpo de la página */
         body {
-            background-color: darkblue; /* Fondo negro */
+            background-color: darkblue; 
             color: #ffffff; /* Letras blancas */
             font-family: 'Press Start 2P', cursive; /* Fuente estilo videojuego */
             margin: 0;
@@ -31,7 +31,7 @@
 
         /* Estilo para el subtítulo o emoji */
         p {
-            font-size: 8vw; /* Hacemos el emoji bien grande */
+            font-size: 8vw; 
             margin-top: 20px;
         }
 

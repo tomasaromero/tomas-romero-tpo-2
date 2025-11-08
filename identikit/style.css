@@ -151,7 +151,7 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
             border-radius: 8px;
             padding: 18px;
             text-align: left;
-            flex: 1;                 /* Para que ocupe el espacio disponible */
+            flex: 1;                 /* para que ocupe el espacio disponible */
             min-width: 250px;        /* Un ancho mínimo para que no se aplaste */
         }
         .contacto-card h3 {
@@ -172,8 +172,8 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
         .flex-container {
             display: flex;
             width: 85%;                /* Para alinear con la tarjeta principal */
-            max-width: 900px;          /* Para alinear con la tarjeta principal */
-            margin: 32px auto;         /* Para centrarlo y darle espacio */
+            max-width: 900px;          /* para alinear con la tarjeta principal */
+            margin: 32px auto;         /* para centrarlo y darle espacio */
             gap: 24px;                 /* Espacio entre las dos tarjetas */
             justify-content: center;
         }
@@ -261,29 +261,29 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
             width: 60%;
             margin: 30px auto;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            background: #f8f9faff; /* --seasalt */
-            border-radius: 8px; /* Ajustado para que se vea mejor */
+            background: #f8f9faff;  
+            border-radius: 8px; 
             border-collapse: separate; /* Permite espacio entre celdas */
-            border-spacing: 5px; /* Define el espacio entre las celdas */
+            border-spacing: 5px; /* espacio entre las celdas */
 
         }
         th, td {
-            border: 0px solid #bbb; /* Bordes eliminados */
+            border: 0px solid #bbb; 
             padding: 10px 16px;
             text-align: center;
-            border-radius: 10px; /* Bordes redondeados */
+            border-radius: 10px; 
             margin: 10%; /* Espacio entre celdas */
             
         }
         th {
-            background: #dee2e6ff; /* --platinum */
+            background: #dee2e6ff; 
             font-weight: bold;
         }
         tr:nth-child(even) td {
-            background: #e9ecefff; /* --antiflash-white */
+            background: #e9ecefff; 
         }
-        tr:hover td { /* Cuando pasa por encima el mouse*/
-            background: #ced4daff; /* --french-gray */
+        tr:hover td { 
+            background: #ced4daff; 
         }
         caption {
             caption-side: top;
@@ -334,9 +334,9 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
 /*Trivia*/
         
         .body_trivia {
-            background: #f8f9faff; /* --seasalt */
+            background: #f8f9faff;
             font-family: Arial, sans-serif;
-            color: #212529ff; /* --eerie-black */
+            color: #212529ff;
             text-align: center;
             padding: 0px;
         }
@@ -364,7 +364,7 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
         /* Estilos para la tabla del juego */
         .trivia-table {
             border-collapse: separate; /* Permite espacio entre celdas */
-            border-spacing: 15px; /* Define el espacio entre las celdas (cartas) */
+            border-spacing: 15px; /* define el espacio entre las celdas (cartas) */
             width: 90%;
             max-width: 800px;
             margin: 30px auto;
@@ -373,28 +373,28 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
         /* Estilo para cada celda, que actúa como una "carta" */
         .card {
             background: #e9ecefff; /* --antiflash-white */
-            border-radius: 10px; /* Bordes redondeados para la carta */
-            padding: 10px; /* Un pequeño espacio interno */
+            border-radius: 10px; 
+            padding: 10px; 
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             width: 20%;
             height: 20%;
         }
         .card:hover {
-            transform: scale(1.5); /* Agranda la carta al pasar el mouse */
+            transform: scale(1.5); 
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         
         .card_principal {
-            background: #e9ecefff; /* --antiflash-white */
-            border-radius: 10px; /* Bordes redondeados para la carta */
+            background: #e9ecefff; 
+            border-radius: 10px;
             padding: 10px; /* Un pequeño espacio interno */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             width: 40%;
         }
         .card_principal:hover {
-            transform: scale(1.1); /* Agranda la carta al pasar el mouse */
+            transform: scale(1.1); 
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
@@ -402,7 +402,7 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
         .card img {
             width: 100%;
             display: block; /* Elimina espacio extra debajo de la imagen */
-            border-radius: 5px; /* Bordes redondeados para la imagen */
+            border-radius: 5px;
         }
 
     
@@ -475,17 +475,17 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
             top: 18px;
             font-size: 1.3em;
             color: #6c757d;
-            content: ''; /* 5. DEBE estar vacío, es solo un contenedor */
+            content: '';
 
-            background-image: url('img/carrito-super.jpg'); /* 6. La ruta a tu imagen */
-            background-size: contain; /* 7. Asegura que la imagen quepa completa*/
-            background-repeat: no-repeat; /* 8. Evita que la imagen se repita */
-            width: 30px;  /* 9. Ancho del ícono */
-            height: 30px; /* 10. Alto del ícono */
-            /* --- Posicionamiento --- */
-            position: absolute; /* 11. Lo sacamos del flujo normal */
-            left: 5px;            /* 12. Lo pegamos al borde izquierdo */
-            top: 18px;             /* 13. Lo alineamos arriba (puedes ajustarlo) */
+            background-image: url('img/carrito-super.jpg'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 30px; 
+            height: 30px; 
+            /*  Posicionamiento  */
+            position: absolute; 
+            left: 5px;          
+            top: 18px;             
             border-radius: 100%;
         }
 
@@ -518,7 +518,7 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
                 padding: 15px 5px;
             }
         }
-        /* Multimedia */
+/* Multimedia */
 .contenedor-media {
     width: 80%;
     margin: 20px auto; 
@@ -554,7 +554,7 @@ JERARQUÍA: Inline > ID > Class > Etiqueta
 }
 #video-sobre-mi {
     margin-right: 28px;
-    float: left; /* <-- CAMBIO: permitir que el video flote a la izquierda */
+    float: left; 
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.09);
     height: 103px;

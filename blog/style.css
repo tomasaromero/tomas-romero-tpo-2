@@ -27,6 +27,8 @@ h2 {
 body {
     background-color: var(--color-secundario);
     line-height: 1.6;
+    background-size: cover; 
+    background-attachment: fixed;
 }
 
 /* Contenedor principal para centrar contenido */
@@ -326,7 +328,7 @@ main {
     gap: 8px;
     margin-bottom: 20px;
     padding: 10px;
-    background-color: var(--color-secundario);
+    background-color: var(--color-fondo);
     border-radius: 6px;
 }
 
@@ -518,6 +520,12 @@ main {
     color: var(--color-acento);
     text-decoration: underline;
     transform: translateY(-2px);
+}
+
+/* Enlaces de los títulos de las tarjetas: quitar subrayado y heredar color */
+.article-card h3 a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Logo interactivo */
