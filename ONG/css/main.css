@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap');
+
+:root {
+    --primary: #6A0D4B;
+    --secondary: #798A5A;
+    --accent: #F0A500;
+    --neutral: #F5F5F5;
+    --dark: #3D3D3D
+}
+
+/* Global */
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Lato', Arial, sans-serif;
+    margin: 0;
+    color: var(--dark);
+    background: transparent; /* Deja ver el video de fondo */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px
+}
+
+/* Header */
+.site-header {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    /* Z-index alto para estar siempre encima del video y contenido */
+    z-index: 1000;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px
+}
+
+.logo {
+    font-family: 'Merriweather', serif;
+    color: var(--primary);
+    font-size: 1.25rem;
+    text-decoration: none
+}
+
+.site-nav {
+    display: flex;
+    gap: 12px
+}
+
+.site-nav a {
+    color: var(--dark);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 6px
+}
+
+.site-nav a:hover {
+    background: #f2f2f2
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--dark);
+    padding: 10px;
+    margin-right: -10px;
+}
+
+/* Footer */
+.site-footer {
+    background: #fff;
+    border-top: 1px solid #eee;
+    padding: 18px 0;
+    margin-top: 24px;
+    /* Aseguramos que el footer tenga fondo y tape el video al final */
+    position: relative;
+    z-index: 2;
+}
+
+.site-footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center
+}
+
+.site-footer .footer-links {
+    font-size: 0.95rem;
+    text-decoration: none
+}
+
+.site-footer .socials a {
+    margin: 0 6px;
+    color: var(--dark);
+    text-decoration: none
+}
+
+.site-footer small {
+    color: #666
+}
+
+/* Buttons and headings */
+button, .button {
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover, .button:hover {
+    transform: translateY(-1px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+button:active, .button:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary);
+    margin: 0
+}
+
+/* Responsive nav */
+@media(max-width:800px) {
+    .nav-toggle {
+        display: block
+    }
+
+    .site-nav {
+        position: fixed;
+        right: 0;
+        top: 58px;
+        background: #fff;
+        flex-direction: column;
+        padding: 12px;
+        border-left: 1px solid #eee;
+        display: none;
+        width: 220px
+    }
+
+    .site-nav.open {
+        display: flex
+    }
+}
+
+/* Layout */
+.page-main {
+    padding: 28px 16px;
+    /* Contenido: Sobre el video */
+    position: relative;
+    z-index: 2;
+    /* Hace que el main ocupe el espacio sobrante */
+    flex: 1;
+}
+
+.hero {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.hero-copy {
+    flex: 1;
+    min-width: 260px
+}
+.hero-copy p{
+    color: #000;
+}
+
+.hero-media {
+    flex: 1;
+    min-width: 300px
+}
+
+.hero-media img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block
+}
+
+.services {
+    margin-top: 28px
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 12px
+}
+
+.service-card {
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #eee
+}
+
+/* Buttons & inputs */
+.button {
+    display: inline-block;
+    font-family: 'Lato', sans-serif
+}
+
+.button.primary {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none
+}
+
+.form {
+    max-width: 720px;
+    margin-top: 12px;
+    display: grid;
+    gap: 10px
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem
+}
+
+.form button {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer
+}
+
+/* Contenedores */
+.container-sm {
+    max-width: 720px;
+    margin: 0 auto
+}
+
+/* VIDEO DE FONDO */
+.video-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -100; /* Se va bien al fondo */
+    overflow: hidden;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    object-fit: cover; 
+}
+
+/* Overlay*/
+.video-background .bg-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(247, 245, 245, 0.782);
+}
+
+/* La imagen animada */
+.video-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+
+    animation: kenBurns 15s ease-in-out infinite alternate;
+    will-change: transform; 
+}
+/* Definición del movimiento (Ken Burns) */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* Contenido global */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    /* Configuración Flex para Footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+    color: var(--primary)
+}
+
+/* En nosotros.html - PROYECTOS */
+
+.projects-section {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    border-top: 1px solid #ddd;
+    padding-top: 40px;
+}
+
+.projects-section h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 2rem;
+}
+
+.project-card {
+    margin-bottom: 30px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column; /* SIEMPRE en columna (imagen arriba, texto abajo) */
+    height: 100%; 
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.project-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Elementos uno debajo del otro */
+    flex: 1; /* Ocupa todo el espacio restante */
+}
+
+.project-badge {
+    display: inline-block;
+    background: var(--secondary);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    align-self: flex-start; /* Evita que el badge se estire */
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Empuja el botón al fondo si hay espacio sobrante */
+}
+
+/* Botón "Leer más" */
+.btn-read-more {
+    display: inline-block;
+    text-align: center;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s;
+    
+    align-self: flex-start; /* Evita que se estire al 100% del ancho o alto */
+    width: auto; /* Ancho natural del contenido */
+    margin-top: auto; /* Asegura que se quede abajo */
+}
+
+.btn-read-more:hover {
+    background: #4a0935;
+    color: #fff;
+}
+
+/* PROYECTOS */
+
+/* Hero - Imagen Principal */
+.project-hero {
+    position: relative;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+.project-hero h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+/* Sidebar y Cajas de información */
+.project-sidebar {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.sidebar-box {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--secondary);
+}
+
+.stat-item {
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Botones especiales */
+.btn-full {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-large {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+}
+
+/* Agenda (Proyecto Capacitación) */
+.lead-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.agenda-item {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+    align-items: center;
+}
+
+.agenda-date {
+    background: var(--secondary);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.agenda-date span {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.agenda-info h4 {
+    margin: 0 0 4px 0;
+    color: var(--primary);
+}
+
+.agenda-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Columnas y Listas (Proyecto Mapa) */
+.grid-2-col {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.feature-list {
+    padding-left: 1.2rem;
+}
+
+.feature-list li {
+    margin-bottom: 0.5rem;
+}
+
+.cta-box {
+    background: var(--neutral);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 2rem;
+    border: 2px dashed #ddd;
+}
+
+.cta-box h3 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+.content-divider {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* Bloques de Ejes Educativos */
+.axis-item {
+    margin-bottom: 3rem;
+}
+
+.axis-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.sidebar-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-subtitle {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.sidebar-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.cta-box-sidebar {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--neutral);
+    border-radius: 8px;
+    border: 2px dashed #ccc;
+    text-align: center;
+}
+
+/* MEDIA QUERIES (GRILLA DE PROYECTOS - NOSOTROS.HTML) */
+/* 1. Celular (Menos de 768px) - 1 Columna */
+@media (max-width: 767px) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 24px;
+    }
+}
+
+/* 2. Tablet (Entre 768px y 1023px) - 2 Columnas */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+}
+
+/* 3. Computadora (Más de 1024px) - 3 o 4 Columnas */
+@media (min-width: 1024px) {
+    .projects-grid {
+        display: grid;
+        /* Aquí definimos 3 columnas fijas */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px;
+        max-width: 1200px; 
+        margin: 0 auto;
+    }
+    
+    /* Ajuste fino: Si la pantalla es GIGANTE (monitores wide), pasamos a 4 */
+    @media (min-width: 1400px) {
+        .projects-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+/*  Proyecto - MAPA DIGITAL */
+
+/* Contenedor de texto centrado pero limitado para lectura cómoda */
+.text-centered-block {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+}
+
+/* Contenedor de Video Responsivo */
+.video-responsive {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background: #000;
+    aspect-ratio: 16 / 9; /* Mantiene proporción wide */
+}
+
+.video-responsive video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Sección de "Feature" alternada (Texto + Imagen/Video) */
+.feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+/* Alternar orden en filas pares si quisieras */
+.feature-row.reversed {
+    direction: rtl; /* Truco rápido para invertir columnas visualmente */
+}
+.feature-row.reversed > * {
+    direction: ltr; /* Restaurar texto */
+}
+
+/* Contenedor de la figura */
+.figure-block {
+    margin: 2rem 0;
+}
+
+/* La imagen en sí */
+.figure-img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+}
+
+/* El texto del epígrafe (pie de foto) */
+.figure-caption {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Ajuste para pantallas grandes (Desktop) */
+@media (min-width: 1200px) {
+    .grid-2-col {
+        gap: 4rem;
+    }
+    .project-hero {
+        height: 400px;
+    }
+}
+
+/* Ajuste para Tablets y Móviles (Mapa Digital) */
+@media (max-width: 850px) {
+    .feature-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .feature-row.reversed {
+        direction: ltr; /* En móvil queremos el orden normal: primero imagen/video */
+    }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Impulso Cuyano — Contacto</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="site-header">
+            <div class="container">
+                <a class="logo" href="index.html">Impulso Cuyano</a>
+                <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+                <nav class="site-nav" aria-label="Navegación principal">
+                    <a href="index.html">Inicio</a>
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="productores.html">Productores</a>
+                    <a href="sumate.html">Sumate</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container page-main">
+            <div class="video-background" aria-hidden="true">
+                <video autoplay muted loop playsinline preload="metadata" poster="assets/img/bodega-los-andes.png">
+                    <source data-src="assets/video/Video_de_apretón_de_manos_infinito.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+                <div class="bg-video-overlay" aria-hidden="true"></div>
+            </div>
+
+            <h1>Contacto</h1>
+            <p>Escribinos y nos comunicaremos a la brevedad.</p>
+
+            <form id="contactForm" class="form">
+                <input name="nombre" placeholder="Nombre" required />
+                <input name="email" type="email" placeholder="Email" required />
+                <textarea name="mensaje" placeholder="Mensaje" rows="6" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="contacto.html">Volver Arriba</a> · <a href="nosotros.html">Nosotros</a> · <a href="productores.html">Productores</a> · <a href="sumate.html">Sumate</a> · <a href="index.html">Inicio</a>
+                </div>
+                <small>© 2025 Impulso Cuyano. Todos los derechos reservados.</small>
+            </div>
+        </footer>
+    </div>
+	<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Impulso Cuyano — Productores</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="content-wrapper">
+      <header class="site-header">
+        <div class="container">
+          <a class="logo" href="index.html">Impulso Cuyano</a>
+          <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+          <nav class="site-nav" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="productores.html">Productores</a>
+            <a href="sumate.html">Sumate</a>
+            <a href="contacto.html">Contacto</a>
+          </nav>
+        </div>
+      </header>
+
+      <div class="app">
+        <aside id="filters">
+          <h3>Encontrar un Productor</h3>
+          <div id="provincias" class="provincias">
+            <button data-prov="all" class="active">Todos</button>
+            <button data-prov="Catamarca">Catamarca</button>
+            <button data-prov="La Rioja">La Rioja</button>
+            <button data-prov="Mendoza">Mendoza</button>
+            <button data-prov="San Juan">San Juan</button>
+            <button data-prov="San Luis">San Luis</button>
+          </div>
+
+          <div class="filter-block">
+            <h4>Categorías</h4>
+            <label><input type="checkbox" value="Bodegas" /> Bodegas</label>
+            <label><input type="checkbox" value="Aceiteras" /> Aceiteras</label>
+            <label><input type="checkbox" value="Frutos Secos" /> Frutos Secos</label>
+            <label><input type="checkbox" value="Aromáticas" /> Aromáticas</label>
+          </div>
+
+          <div class="filter-block">
+            <h4>Certificaciones</h4>
+            <label><input type="checkbox" value="Certificación Orgánica" /> Certificación Orgánica</label>
+            <label><input type="checkbox" value="Sello Comercio Justo" /> Sello Comercio Justo</label>
+          </div>
+
+          <div class="filter-actions">
+            <button id="resetFilters">Restablecer filtros</button>
+          </div>
+        </aside>
+
+        <main>
+          <div class="video-background" aria-hidden="true">
+              <img src="assets/img/bodega-los-andes.png" alt="Bodega Los Andes" />
+              <div class="bg-video-overlay" aria-hidden="true"></div>
+          </div>
+
+          <div id="map" class="map"></div>
+          <section id="grid" class="cards" aria-live="polite"></section>
+        </main>
+      </div>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="footer-links">
+            <a href="productores.html">Volver Arriba</a> · <a href="nosotros.html">Nosotros</a> · <a href="sumate.html">Sumate</a> · <a href="contacto.html">Contacto</a> · <a href="index.html">Inicio</a>
+          </div>
+          <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+          </div>
+          <small>© 2025 Impulso Cuyano. Todos los derechos reservados.</small>
+        </div>
+      </footer>
+  </div>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lb-close" aria-label="Cerrar">×</button>
+      <div id="lb-body"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/mapa.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
