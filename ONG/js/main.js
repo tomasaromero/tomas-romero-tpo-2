@@ -58,13 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
      3. FORMULARIOS CON EMAILJS
      ========================================= */
   
-  // --- CONFIGURACIÓN DE TUS CREDENCIALES ---
-  // Reemplaza estos textos con los códigos de tu panel de EmailJS
-  const SERVICE_ID = "ong_impulso_cuyano";      // Tu Service ID (ej: service_gmail)
-  const TEMPLATE_ONG = "impulso_cuyano_contacto";   // ID de plantilla para avisar a la ONG
-  const TEMPLATE_USER = "impulso_cuyano_sumate"; // ID de plantilla para responder al usuario
+  // CONFIGURACIÓN DE TUS CREDENCIALES 
+  const SERVICE_ID = "ong_impulso_cuyano";     
+  const TEMPLATE_ONG = "impulso_cuyano_contacto";   
+  const TEMPLATE_USER = "impulso_cuyano_sumate"; 
 
-  // --- Formulario "Sumate" ---
+  // Formulario "Sumate"
   const sumateForm = document.getElementById('sumateForm');
   
   if (sumateForm) {
@@ -78,9 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 1. Envío a la ONG
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ONG, this)
         .then(() => {
-            // 2. (Opcional) Copia automática al usuario
-            // Si creaste la plantilla de usuario, descomenta la siguiente línea:
-            // emailjs.sendForm(SERVICE_ID, TEMPLATE_USER, this);
+            // 2. Copia automática al usuario
             
             alert('¡Gracias por sumarte! Hemos recibido tus datos correctamente.');
             sumateForm.reset();
@@ -115,6 +112,78 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Error al enviar el mensaje.');
             btn.innerText = originalText;
         });
+    });
+  }
+  /* =========================================
+     4. ANIMACIÓN DE CONTADORES (SCROLL)
+     ========================================= */
+  const counters = document.querySelectorAll('.metric-number');
+  const speed = 200; // Velocidad de animación
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + inc);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = "+" + target; // Agrega el "+" al final
+        }
+      };
+      updateCount();
+    });
+  };
+
+  // Intersection Observer: Solo anima cuando el usuario ve la sección
+  const observerOptions = { threshold: 0.5 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(entry.target); // Solo animar una vez
+      }
+    });
+  }, observerOptions);
+
+  const metricsSection = document.querySelector('.impact-metrics');
+  if (metricsSection) {
+    observer.observe(metricsSection);
+  }
+/* =========================================
+     5. DARK MODE LOGIC
+     ========================================= */
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  // Función para aplicar el tema
+  const applyTheme = (isDark) => {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      if(themeToggle) themeToggle.innerText = '☀️'; // Icono de sol
+    } else {
+      body.classList.remove('dark-mode');
+      if(themeToggle) themeToggle.innerText = '🌙'; // Icono de luna
+    }
+  };
+
+  // 1. Verificar preferencia guardada al cargar
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    applyTheme(true);
+  }
+
+  // 2. Evento al hacer clic en el botón
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = body.classList.toggle('dark-mode');
+      
+      // Cambiar icono y guardar preferencia
+      applyTheme(isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   }
 

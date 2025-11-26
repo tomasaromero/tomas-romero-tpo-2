@@ -8,6 +8,14 @@
     --dark: #3D3D3D
 }
 
+/* Hover & UI tuning tokens */
+:root {
+    --hover-scale: 1.01;
+    --hover-brightness: 1.08;
+    --hover-shadow: 0 18px 40px rgba(49, 49, 63, 0.12);
+    --card-shadow: 0 6px 18px rgba(34, 34, 34, 0.06);
+}
+
 /* Global */
 * {
     box-sizing: border-box
@@ -155,6 +163,101 @@ h1, h2, h3 {
         display: flex
     }
 }
+/* DARK MODE*/
+body.dark-mode {
+--neutral: #121212;
+--dark: #f1f1f1;
+
+--bg-surface: #1E1E1E;
+--borde-color: #333;
+--text-muted: #b0b0b0;
+
+}
+
+body.dark-mode {
+    background: var(--neutral);
+    color: var(--dark);
+}
+
+body.dark-mode h1, 
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode #filters h3,
+body.dark-mode .project-card .project-content h3 {
+    color: var(--text-muted);
+    text-shadow: 0 0 3px var(--primary); /* Un brillo bordó suave */
+    transition: text-shadow 0.3s ease;
+}
+
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer,
+body.dark-mode .project-card,
+body.dark-mode .card,
+body.dark-mode .service-card,
+body.dark-mode .project-sidebar,
+body.dark-mode .sidebar-box,
+body.dark-mode .form,
+body.dark-mode .lightbox-content,
+body.dark-mode .provincias button {
+    background: var(--bg-surface) !important; /* Forzamos el fondo oscuro */
+    color: var(--dark);
+    border-color: var(--border-color);
+}
+
+body.dark-mode p, 
+body.dark-mode .lead-text,
+body.dark-mode .sidebar-text,
+body.dark-mode .figure-caption,
+body.dark-mode label {
+    color: var(--text-muted);
+}
+
+body.dark-mode .logo {
+    color: #fff; /* Logo en blanco */
+}
+
+body.dark-mode .form input[type="text"],
+body.dark-mode .form input[type="email"],
+body.dark-mode .form textarea, 
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #fff;
+    border-radius: 5px;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #888;
+}
+
+body.dark-mode .video-background .bg-video-overlay {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--dark);
+    color: var(--dark);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.1);
+}
 
 /* Layout */
 .page-main {
@@ -193,6 +296,51 @@ h1, h2, h3 {
     display: block
 }
 
+/* Global image + card hover */
+img,
+.figure-img,
+.axis-image,
+.project-card img,
+.card img,
+.service-card img {
+    transition: transform 260ms cubic-bezier(.2,.8,.2,1),
+                filter 200ms ease, box-shadow 260ms ease;
+    will-change: transform, filter, box-shadow;
+    backface-visibility: hidden;
+}
+
+/*  scale + lightening en hovers para imgs en cards */
+.card:hover img,
+.project-card:hover img,
+.service-card:hover img,
+img:hover {
+    transform: scale(var(--hover-scale));
+    filter: brightness(var(--hover-brightness));
+    box-shadow: var(--hover-shadow);
+}
+
+/* Elevacion de cards - más clickeable */
+.card,
+.project-card,
+.service-card {
+    transition: transform 260ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease;
+}
+
+.card:hover,
+.card:focus-within,
+.project-card:hover,
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Make focus visually matching hover for keyboard users */
+.card:focus-within,
+.project-card:focus-within,
+.service-card:focus-within {
+    outline: 2px solid rgba(106, 13, 75, 0.12);
+}
+
 .services {
     margin-top: 28px
 }
@@ -229,25 +377,85 @@ h1, h2, h3 {
     max-width: 720px;
     margin-top: 12px;
     display: grid;
-    gap: 10px
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-auto-flow: row;
 }
 
 .form input[type="text"],
 .form input[type="email"],
+.form input,
+input,
 .form textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .form button {
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--primary), #4a0935);
     color: #fff;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
     border: 0;
-    cursor: pointer
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(106,13,75,0.12);
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.form button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.04);
+    box-shadow: 0 16px 36px rgba(106,13,75,0.16);
+}
+
+/* Input focus styling */
+.form input:focus, .form textarea:focus, .form select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(106, 13, 75, 0.08);
+}
+
+/* Checkbox modern accent, accessible */
+input[type="checkbox"] {
+    accent-color: var(--primary);
+    width: 18px;
+    height: 18px;
+}
+
+/* Niceties for placeholders */
+.form input::placeholder, .form textarea::placeholder {
+    color: #9A9A9A;
+}
+
+/* Form container upgrade */
+.form {
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,250,0.92));
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(24,24,28,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Labels (some forms use label + checkbox) */
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Small responsive tweaks */
+@media (max-width: 700px) {
+    .card:hover, .project-card:hover { transform: none; box-shadow: var(--card-shadow); }
+    .card img, .project-card img { transform: none; box-shadow: none; }
 }
 
 /* Contenedores */
@@ -355,6 +563,10 @@ a:focus, a:hover {
     flex-direction: column; /* SIEMPRE en columna (imagen arriba, texto abajo) */
     height: 100%; 
 }
+.project-card:hover, .project-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 54px rgba(0,0,0,0.08);
+}
 
 .project-card img {
     width: 100%;
@@ -362,6 +574,7 @@ a:focus, a:hover {
     object-fit: cover;
     border-bottom: 1px solid #eee;
 }
+.project-card img { border-top-left-radius: 8px; border-top-right-radius: 8px; }
 
 .project-content {
     padding: 20px;
@@ -659,7 +872,44 @@ a:focus, a:hover {
         }
     }
 }
+/* En index.html - SECCIÓN DE MÉTRICAS (CONTADORES)  */
+.impact-metrics {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 9px;
+}
 
+.metrics-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.metric-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.metric-number {
+    font-family: 'Merriweather', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--accent); /* Color dorado para el número */
+}
+
+.metric-label {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
 /*  Proyecto - MAPA DIGITAL */
 
 /* Contenedor de texto centrado pero limitado para lectura cómoda */
@@ -744,4 +994,24 @@ a:focus, a:hover {
     .feature-row.reversed {
         direction: ltr; /* En móvil queremos el orden normal: primero imagen/video */
     }
+}
+
+/* Make textarea span full width */
+.form textarea { grid-column: 1 / -1; }
+
+/* Make submit button inline but leave it as natural width (left aligned on desktop) */
+.form button { justify-self: start; }
+
+/* Checkbox label styling placed to be naturally aligned */
+.form label { align-self: center; }
+
+/* When form is focused (keyboard interaction) a subtle elevation */
+.form:focus-within { box-shadow: 0 16px 40px rgba(34,34,34,0.06); transform: translateY(-2px); }
+
+/* Accessibility - ensure elements show focus ring */
+.form input:focus, .form textarea:focus, .form button:focus { outline-offset: 3px; }
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
 }

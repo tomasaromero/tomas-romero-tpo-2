@@ -42,16 +42,40 @@ function renderMarkers(list, shouldFitBounds = true){
 function renderGrid(list){
   const grid = document.getElementById('grid');
   if(!grid) return;
-  grid.innerHTML = list.map(p=>`
-    <article class="card" data-id="${p.id}">
-      <img src="${p.foto}" alt="${p.nombre}"/>
-      <div class="card-body">
-        <h5>${p.nombre}</h5>
-        <p>${p.descripcion}</p>
+
+  // el HTML con la estructura de Flip Card
+  grid.innerHTML = list.map(p => `
+    <article class="card flip-card" data-id="${p.id}">
+      <div class="flip-card-inner">
+        
+        <div class="flip-card-front">
+          <img src="${p.foto}" alt="${p.nombre}"/>
+          <div class="card-body">
+            <h5>${p.nombre}</h5>
+            <p>${p.descripcion.substring(0, 80)}...</p> 
+          </div>
+        </div>
+
+        <div class="flip-card-back">
+          <h5>${p.nombre}</h5>
+          <p><strong>Provincia:</strong> ${p.provincia}</p>
+          
+          <div>
+            ${p.categorias.map(c => `<span class="info-pill">${c}</span>`).join(' ')}
+          </div>
+
+          <p style="margin-top:10px">
+            ${p.certificaciones.length ? '✅ ' + p.certificaciones[0] : ''}
+          </p>
+
+          <span class="click-hint"> Clic para ver más detalles</span>
+        </div>
+
       </div>
     </article>
   `).join('') || '<p style="padding:14px">No hay productores que coincidan con los filtros.</p>';
 
+  // El evento Click 
   grid.querySelectorAll('.card').forEach(card=>{
     card.addEventListener('click', ()=>{
       const id = +card.dataset.id;
