@@ -237,6 +237,18 @@ body.dark-mode textarea::placeholder {
 body.dark-mode .video-background .bg-video-overlay {
     background: rgba(0, 0, 0, 0.75);
 }
+body.dark-mode .site-nav {
+    background-color: var(--bg-surface); 
+    border-left: 1px solid var(--border-color);
+}
+body.dark-mode .site-nav a {
+    color: var(--dark);  
+}
+body.dark-mode .site-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+
 
 .theme-toggle-btn {
     background: transparent;
@@ -993,6 +1005,16 @@ a:focus, a:hover {
     }
     .feature-row.reversed {
         direction: ltr; /* En móvil queremos el orden normal: primero imagen/video */
+    }
+    .form {
+        /* Forzamos una sola columna para que no se aprieten los campos */
+        grid-template-columns: 1fr;
+        padding: 15px; 
+    }
+    
+    .form button {
+        width: 100%;
+        margin-top: 10px;
     }
 }
 
