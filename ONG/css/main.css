@@ -183,10 +183,11 @@ body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4,
+body.dark-mode h5,
 body.dark-mode #filters h3,
 body.dark-mode .project-card .project-content h3 {
     color: var(--text-muted);
-    text-shadow: 0 0 3px var(--primary); /* Un brillo bordó suave */
+    text-shadow: 0 0 3px var(--primary);  
     transition: text-shadow 0.3s ease;
 }
 
@@ -215,7 +216,7 @@ body.dark-mode label {
 }
 
 body.dark-mode .logo {
-    color: #fff; /* Logo en blanco */
+    color: #fff; 
 }
 
 body.dark-mode .form input[type="text"],
@@ -237,17 +238,40 @@ body.dark-mode textarea::placeholder {
 body.dark-mode .video-background .bg-video-overlay {
     background: rgba(0, 0, 0, 0.75);
 }
+
 body.dark-mode .site-nav {
     background-color: var(--bg-surface); 
     border-left: 1px solid var(--border-color);
 }
+
 body.dark-mode .site-nav a {
     color: var(--dark);  
 }
+
 body.dark-mode .site-nav a:hover {
     background-color: rgba(255, 255, 255, 0.1); 
 }
 
+body.dark-mode .flip-card-front {
+    background-color: var(--bg-surface);
+    color: var(--dark);
+    border: 1px solid var(--border-color); 
+}
+
+
+body.dark-mode .flip-card-front p {
+    color: var(--text-muted);
+}
+
+body.dark-mode .flip-card-front h5 {
+    color: #fff; 
+}
+
+body.dark-mode #lb-body h2 {
+    color: var(--text-muted) !important; /* Forzamos blanco */
+    text-shadow: 0 0 3px var(--primary); 
+    margin-bottom: 15px; /* Un poco de aire extra */
+}
 
 
 .theme-toggle-btn {
