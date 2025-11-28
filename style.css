@@ -9,7 +9,8 @@
     --btn-hover: rgba(255, 255, 255, 0.1);
 }
 
-* {
+* { /* Reset básico */
+    /* Con esto evitamos problemas de padding y margin por defecto */
     box-sizing: border-box;
 }
 
