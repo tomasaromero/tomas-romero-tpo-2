@@ -93,6 +93,7 @@ body {
     margin-top: 24px;
     /* Aseguramos que el footer tenga fondo y tape el video al final */
     position: relative;
+
     z-index: 2;
 }
 
@@ -104,8 +105,22 @@ body {
 }
 
 .site-footer .footer-links {
-    font-size: 0.95rem;
-    text-decoration: none
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0; 
+}
+
+.site-footer .footer-links a {
+    font-size: 0.95rem;  
+    color: var(--dark);
+    text-decoration: none;
+}
+
+
+@media (max-width: 520px) {
+    .site-footer .footer-links { gap: 12px; }
 }
 
 .site-footer .socials a {
