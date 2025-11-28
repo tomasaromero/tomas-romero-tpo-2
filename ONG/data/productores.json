@@ -211,7 +211,7 @@
     "certificaciones": ["Sello Comercio Justo"],
     "lat": -31.0500,
     "lng": -68.3000,
-    "foto": "assets/img/arauco-premium.jpeg",
+    "foto": "assets/img/arauco-premium.jpg",
     "descripcion": "Especialistas en varietal Arauco.",
     "contacto": { "email": "info@araucooliva.com" }
   },
