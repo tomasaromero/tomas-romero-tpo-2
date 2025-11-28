@@ -13,7 +13,7 @@
 
     <header class="site-header">
         <div class="container header-container">
-            <a class="logo">Mi Blog </a>
+            <a class="logo" href="../pagina-1.html">Mi Blog</a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="../pagina-1.html">Inicio</a></li>
@@ -42,6 +42,11 @@
                 <h2>¿Qué es una Computadora Cuántica?</h2>
                 <p>Una computadora clásica funciona con "bits", que son interruptores que pueden estar en estado 0 o 1. Una computadora cuántica utiliza "qubits".</p>
 
+                <figure class="article-figure">
+                    <img src="../img/bits-vs-quibits.jpg" alt="Diagrama comparativo entre un Bit clásico y un Qubit" class="article-image">
+                    <figcaption class="image-caption">Mientras un bit es binario, un qubit puede existir en un estado fluido de probabilidades.</figcaption>
+                </figure>
+
                 <p>Gracias a dos principios de la mecánica cuántica, los qubits tienen superpoderes:</p>
 
                 <h3>Superposición</h3>
@@ -50,7 +55,12 @@
                 <h3>Entrelazamiento (Entanglement)</h3>
                 <p>Dos qubits pueden vincularse. Si mides uno y obtienes 0, sabes instantáneamente que el otro será 1, sin importar qué tan lejos esté (Einstein lo llamó "acción fantasmal a distancia").</p>
 
-                <p>¿Por qué es esto importante? Debido a la superposición, 3 qubits pueden representar 8 estados simultáneamente (2³). Con solo 300 qubits entrelazados, una computadora cuántica podría manejar más estados simultáneamente que el número de átomos en el universo observable. Esto permite un procesamiento paralelo a una escala inimaginable.</p>
+                <p>¿Por qué es esto importante? Debido a la superposición, 3 qubits pueden representar 8 estados simultáneamente (2³). Con solo 300 qubits entrelazados, una computadora cuántica podría manejar más estados simultáneamente que el número de átomos en el universo observable.</p>
+
+                <figure class="article-figure">
+                    <img src="../img/hardware-cuantico.jpg" alt="Refrigerador de dilución de una computadora cuántica" class="article-image">
+                    <figcaption class="image-caption">El procesador cuántico reside en la punta inferior de este refrigerador, operando a temperaturas cercanas al cero absoluto.</figcaption>
+                </figure>
 
                 <h2>Aplicaciones que cambiarán el mundo</h2>
 
@@ -64,10 +74,19 @@
                 <p>Encontrar la ruta más eficiente para una flota de 1000 camiones de reparto o modelar sistemas financieros complejos son problemas que la cuántica podría resolver de manera óptima.</p>
 
                 <h2>El Desafío: La Decoherencia</h2>
-                <p>El problema es que los qubits son increíblemente frágiles. La más mínima vibración, cambio de temperatura o interferencia (el "ruido") hace que pierdan su estado cuántico (superposición) y "colapsen" a un 0 o 1 clásico. Esto se llama decoherencia. La mayoría de la investigación actual se centra en la corrección de errores y en mantener los qubits estables (a menudo cerca del cero absoluto).</p>
+                <p>El problema es que los qubits son increíblemente frágiles. Los principales obstáculos actuales son:</p>
+                
+                <ul>
+                    <li><strong>Ruido ambiental:</strong> Vibraciones o cambios de temperatura destruyen el estado cuántico.</li>
+                    <li><strong>Tasa de error:</strong> Los qubits actuales producen errores con frecuencia, requiriendo complejos sistemas de corrección.</li>
+                    <li><strong>Escalabilidad:</strong> Es difícil mantener el entrelazamiento entre muchos qubits simultáneamente.</li>
+                </ul>
+
+                <p>La mayoría de la investigación actual se centra en la corrección de errores y en mantener los qubits estables (a menudo cerca del cero absoluto).</p>
 
                 <h2>Conclusión</h2>
                 <p>Las computadoras cuánticas no reemplazarán tu laptop para ver videos o escribir correos. Serán máquinas especializadas, probablemente en la nube, que usaremos para resolver problemas específicos que hoy limitan el progreso humano. Aún estamos en la "era de las válvulas de vacío" de la cuántica, pero la revolución ya está en marcha.</p>
+                
                 <br><br>
                 <p><a class="btn-primary" href="../pagina-2.html">Volver a Publicaciones</a></p>
                 <br>
@@ -85,7 +104,7 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos </h4>
                 <ul>
-                    <li><a href="#">Volver arriba</a></li>
+                    <li><a href="#">Volver arriba</a></li>                  
                     <li><a href="../pagina-1.html">Inicio</a></li>
                     <li><a href="../pagina-2.html">Publicaciones</a></li>
                     <li><a href="../about.html">Sobre Mí</a></li>
@@ -101,15 +120,18 @@
             <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p>
         </div>
     </footer>
+    
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const btnMenu = document.querySelector('.hamburger-menu');
         const navMenu = document.querySelector('.main-nav ul');
 
-        btnMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('mostrar');
-        });
+        if (btnMenu && navMenu) {
+            btnMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('mostrar');
+            });
+        }
     });
-	</script>
+    </script>
 </body>
 </html>

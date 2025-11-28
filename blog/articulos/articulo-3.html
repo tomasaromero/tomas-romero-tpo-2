@@ -13,7 +13,7 @@
 
     <header class="site-header">
         <div class="container header-container">
-            <a class="logo">Mi Blog </a>
+            <a class="logo" href="../pagina-1.html">Mi Blog</a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="../pagina-1.html">Inicio</a></li>
@@ -29,7 +29,7 @@
     <main class="container">
         <article class="article-card article-narrow">
             <picture>
-                <img src="../../identikit/img/guia-netlify.webp" alt="Guía Netlify">
+                <img src="../img/deploy-netlify.jpg" alt="Logo de Netlify y concepto de deploy">
             </picture>
             <div class="card-content">
                 <br>
@@ -42,29 +42,47 @@
                 <p>En esta guía, desplegaremos un sitio estático en minutos.</p>
 
                 <h2>Paso 1: Prerrequisitos</h2>
-                <p><strong>Un sitio estático:</strong> Puede ser HTML/CSS/JS simple, o un proyecto construido con un generador como React (Create React App), Vue, Astro o Svelte.</p>
-                <p><strong>Un repositorio en Git:</strong> Tu código debe estar alojado en GitHub, GitLab o Bitbucket.</p>
-                <p><strong>Una cuenta en Netlify:</strong> Registrarse es gratis.</p>
+                <p>Antes de empezar, asegúrate de tener lo siguiente:</p>
+                <ul>
+                    <li><strong>Un sitio estático:</strong> HTML/CSS/JS simple o un proyecto React/Vue.</li>
+                    <li><strong>Un repositorio en Git:</strong> Tu código subido a GitHub, GitLab o Bitbucket.</li>
+                    <li><strong>Una cuenta en Netlify:</strong> Registrarse es gratis.</li>
+                </ul>
 
                 <h2>Paso 2: Conectar tu Repositorio</h2>
                 <p>Una vez dentro de tu panel de Netlify: haz clic en "Add new site" → "Import an existing project". Conecta tu proveedor de Git (ej. GitHub) y autoriza a Netlify. Selecciona el repositorio que quieres desplegar.</p>
+
+                <figure class="article-figure">
+                    <img src="../img/dashboard-netlify-importar-proyecto.jpg" alt="Captura del panel de Netlify seleccionando repositorio" class="article-image">
+                    <figcaption class="image-caption">El panel de importación permite conectar GitHub, GitLab o Bitbucket en un clic.</figcaption>
+                </figure>
 
                 <h2>Paso 3: Configurar el Build</h2>
                 <p>Aquí es donde Netlify necesita saber cómo "construir" tu sitio (si no es HTML simple).</p>
                 <ul>
                     <li><strong>Branch to deploy:</strong> Generalmente <code>main</code> o <code>master</code>.</li>
                     <li><strong>Build command:</strong> Si usas React o Vue, aquí pondrías <code>npm run build</code>. Si es HTML simple, puedes dejarlo vacío.</li>
-                    <li><strong>Publish directory:</strong> Es la carpeta que genera el comando anterior. En React (CRA) es <code>build</code>, en Vite es <code>dist</code>. Si es HTML simple, es el directorio raíz (<code>.</code>).</li>
+                    <li><strong>Publish directory:</strong> La carpeta que genera el comando. (ej. <code>build</code> o <code>dist</code>).</li>
                 </ul>
 
+                <figure class="article-figure">
+                    <img src="../img/configuracion-de-build.jpg" alt="Formulario de configuración de build en Netlify" class="article-image">
+                    <figcaption class="image-caption">Es crucial definir correctamente el directorio de publicación (Publish directory) para evitar errores 404.</figcaption>
+                </figure>
+
                 <h2>Paso 4: ¡Deploy!</h2>
-                <p>Haz clic en "Deploy site". Netlify clonará tu repositorio, ejecutará el comando de construcción (si lo hay) y desplegará los archivos del directorio de publicación en su CDN global. En menos de un minuto, te dará una URL aleatoria (ej. <em>tu-sitio-genial.netlify.app</em>) donde tu sitio ya está en línea.</p>
+                <p>Haz clic en "Deploy site". Netlify clonará tu repositorio, ejecutará el comando de construcción y desplegará los archivos en su CDN global. En menos de un minuto, te dará una URL aleatoria donde tu sitio ya está en línea.</p>
 
                 <h2>Paso 5 (Extra): La Magia del CI/CD</h2>
-                <p>Ahora viene lo mejor. Realiza un cambio en tu código local, haz <code>git commit</code> y luego <code>git push</code> a tu rama <code>main</code>. Netlify detectará automáticamente ese push, volverá a ejecutar el proceso de build y actualizará tu sitio en vivo. No necesitas hacer nada más.</p>
+                <p>Ahora viene lo mejor. Realiza un cambio en tu código local, haz <code>git commit</code> y luego <code>git push</code>. Netlify detectará automáticamente ese push y actualizará tu sitio en vivo.</p>
+
+                <blockquote>
+                    "CI/CD (Integración y Despliegue Continuos) significa que ya no necesitas subir archivos manualmente. Tu repositorio es la única fuente de verdad."
+                </blockquote>
 
                 <h2>Conclusión</h2>
-                <p>Netlify elimina toda la fricción del despliegue. Con funciones adicionales como deploy previews (una vista previa por cada pull request), manejo de formularios y HTTPS automático, se ha convertido en la herramienta de referencia para el desarrollo web moderno estático.</p>
+                <p>Netlify elimina toda la fricción del despliegue. Con funciones adicionales como deploy previews, manejo de formularios y HTTPS automático, se ha convertido en la herramienta de referencia para el desarrollo web moderno estático.</p>
+                
                 <br><br>
                 <p><a class="btn-primary" href="../pagina-1.html">Volver a Publicaciones</a></p>
                 <br>
@@ -103,10 +121,12 @@
         const btnMenu = document.querySelector('.hamburger-menu');
         const navMenu = document.querySelector('.main-nav ul');
 
-        btnMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('mostrar');
-        });
+        if (btnMenu && navMenu) {
+            btnMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('mostrar');
+            });
+        }
     });
-	</script>
+    </script>
 </body>
 </html>

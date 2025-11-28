@@ -256,12 +256,36 @@ main {
 
     }
     .article-card.article-narrow .card-content {
-        padding:100px; 
+        padding:10%; 
         text-align: left; 
     }
     .article-card.article-narrow .card-content p {
         text-align: justify; 
     }
+    .article-figure {
+    margin: 2rem 0; /* Espacio vertical para separar del texto */
+    text-align: center;
+    }
+
+.article-image,
+.article-figure img,
+.article-video {
+    width: 100%;
+    height: auto; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    display: block; /* Evita espacios extra abajo */
+}
+
+blockquote {
+    border-left: 5px solid var(--color-acento);
+    background-color: #f9f9f9;
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    font-style: italic;
+    color: #555;
+    border-radius: 4px;
+}
 
 .category-badge {
     display: inline-block;

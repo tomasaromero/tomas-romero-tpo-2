@@ -13,7 +13,7 @@
 
     <header class="site-header">
         <div class="container header-container">
-            <a class="logo">Mi Blog </a>
+            <a class="logo" href="../pagina-1.html">Mi Blog</a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="../pagina-1.html">Inicio</a></li>
@@ -27,9 +27,9 @@
     </header>
 
     <main class="container">
-    <article class="article-card article-narrow" >
+        <article class="article-card article-narrow">
             <picture>
-                <img src="../../identikit/img/interfaces-desarrollo-web_articulo.jpg" alt="Interfaces accesibles">
+                <img src="../img/interfaces-accesibles.jpg" alt="Ilustración de diseño web accesible">
             </picture>
             <div class="card-content">
                 <br>
@@ -37,20 +37,38 @@
                 <h1>Construyendo interfaces accesibles</h1>
                 <p class="byline"><time datetime="2025-10-22">22 de Octubre, 2025</time></p>
 
-                <p>En el desarrollo web, a menudo nos centramos en la estética, la velocidad de carga o las últimas tendencias de frameworks. Sin embargo, hay un pilar fundamental que a veces se pasa por alto: la accesibilidad (a11y). Construir interfaces accesibles no es una característica adicional; es un requisito fundamental para garantizar que la web sea un espacio inclusivo para todos, independientemente de sus capacidades físicas o cognitivas.</p>
+                <p>En el desarrollo web, a menudo nos centramos en la estética, la velocidad de carga o las últimas tendencias de frameworks. Sin embargo, hay un pilar fundamental que a veces se pasa por alto: la accesibilidad (a11y). Construir interfaces accesibles no es una característica adicional; es un requisito fundamental para garantizar que la web sea un espacio inclusivo para todos.</p>
 
                 <h2>1. HTML Semántico: La base de todo</h2>
-                <p>Antes de cualquier framework de CSS o JavaScript, la accesibilidad comienza con un HTML sólido y semántico. Los lectores de pantalla y otros dispositivos de asistencia dependen de la estructura del DOM para entender la página.</p>
-                <p><strong>No uses &lt;div&gt; para todo:</strong> Si algo funciona como un botón, usa la etiqueta <code>&lt;button&gt;</code>. Si es un enlace, usa <code>&lt;a&gt;</code>. Para la navegación, usa <code>&lt;nav&gt;</code>, y para el contenido principal, <code>&lt;main&gt;</code>.</p>
+                <p>Antes de cualquier framework de CSS o JavaScript, la accesibilidad comienza con un HTML sólido y semántico. Los lectores de pantalla dependen de la estructura del DOM para entender la página.</p>
+                
+                <p><strong>Ejemplo práctico:</strong> Un lector de pantalla no sabe que un `div` es un botón a menos que se lo digas explícitamente.</p>
+
+                <pre><code><div class="btn" onclick="enviar()">Enviar</div>
+
+<button type="submit">Enviar</button></code></pre>
+
                 <p><strong>Jerarquía de encabezados:</strong> Usa <code>&lt;h1&gt;</code> (solo uno por página), <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, etc., en un orden lógico. No uses encabezados solo para cambiar el tamaño de la fuente.</p>
 
                 <h2>2. Navegación por Teclado</h2>
                 <p>No todos los usuarios utilizan un mouse. Las personas con discapacidades motoras dependen exclusivamente del teclado para navegar.</p>
+                
+                <figure class="article-figure">
+                    <img src="../img/estado-focus-visible.jpg" alt="Ejemplo de botón con borde de foco visible" class="article-image">
+                    <figcaption class="image-caption">El estado :focus debe ser siempre visible para saber dónde estamos navegando.</figcaption>
+                </figure>
+
                 <p><strong>Visibilidad del foco:</strong> Asegúrate de que el estado <code>:focus</code> sea claramente visible. Muchos resets de CSS eliminan el outline por defecto; si lo haces, debes proporcionar una alternativa visual clara.</p>
                 <p><strong>Orden lógico:</strong> El orden en que se navega con la tecla Tab debe seguir el flujo visual de la página (de izquierda a derecha, de arriba abajo).</p>
 
                 <h2>3. Contraste y Color</h2>
                 <p>El diseño visual debe ser perceptible para personas con baja visión o daltonismo.</p>
+                
+                <figure class="article-figure">
+                    <img src="../img/contraste-alto-vs-bajo.jpg" alt="Comparación de texto con bajo y alto contraste" class="article-image">
+                    <figcaption class="image-caption">Herramientas como Lighthouse pueden auditar automáticamente si tus colores cumplen el estándar AA.</figcaption>
+                </figure>
+
                 <p><strong>Contraste mínimo:</strong> Las directrices WCAG exigen una relación de contraste mínima (generalmente 4.5:1 para texto normal). Herramientas como Lighthouse en Chrome DevTools pueden auditar esto automáticamente.</p>
                 <p><strong>El color no debe ser el único indicador:</strong> No uses solo el color rojo para indicar un error. Acompáñalo de un icono, un texto descriptivo o un borde grueso.</p>
 
@@ -61,6 +79,7 @@
 
                 <h2>Conclusión</h2>
                 <p>La accesibilidad web no es un favor que hacemos, es una responsabilidad profesional. Integrar estas prácticas desde el inicio del proyecto no solo abre nuestro sitio a millones de nuevos usuarios, sino que también mejora el SEO y, francamente, nos convierte en mejores desarrolladores.</p>
+                
                 <br><br>
                 <p><a class="btn-primary" href="../pagina-1.html">Volver a Publicaciones</a></p>
                 <br>
@@ -78,7 +97,7 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos </h4>
                 <ul>
-                    <li><a href="#">Volver arriba</a></li>                    
+                    <li><a href="#">Volver arriba</a></li>                  
                     <li><a href="../pagina-1.html">Inicio</a></li>
                     <li><a href="../pagina-2.html">Publicaciones</a></li>
                     <li><a href="../about.html">Sobre Mí</a></li>
@@ -99,10 +118,12 @@
         const btnMenu = document.querySelector('.hamburger-menu');
         const navMenu = document.querySelector('.main-nav ul');
 
-        btnMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('mostrar');
-        });
+        if (btnMenu && navMenu) {
+            btnMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('mostrar');
+            });
+        }
     });
-	</script>
+    </script>
 </body>
 </html>

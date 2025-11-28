@@ -13,7 +13,7 @@
 
     <header class="site-header">
         <div class="container header-container">
-            <a class="logo">Mi Blog </a>
+            <a class="logo" href="../pagina-1.html">Mi Blog</a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="../pagina-1.html">Inicio</a></li>
@@ -27,10 +27,9 @@
     </header>
 
     <main class="container">
-        <article class="article-card article-narrow" >
-            <br><br>
+        <article class="article-card article-narrow">
             <picture>
-                <img src="../../identikit/img/rendimiento-SPA.jpg" alt="Optimización SPAs">
+                <img src="../img/rendimiento-spas.jpg" alt="Ilustración de velocidad y optimización en desarrollo web">
             </picture>
             <div class="card-content">
                 <br>
@@ -38,32 +37,60 @@
                 <h1>Optimización de rendimiento en SPAs</h1>
                 <p class="byline"><time datetime="2025-10-22">22 de Octubre, 2025</time></p>
 
-                <p>Las Aplicaciones de Una Sola Página (SPAs), construidas con frameworks como React, Vue o Angular, ofrecen una experiencia de usuario (UX) increíblemente fluida. Una vez cargadas, la navegación entre vistas es casi instantánea porque el navegador no necesita recargar la página por completo.</p>
-
-                <p>Sin embargo, esta fluidez tiene un costo inicial: un archivo JavaScript (el bundle) grande que debe ser descargado, analizado y ejecutado antes de que el usuario vea algo. Este es el principal cuello de botella de las SPAs. Afortunadamente, tenemos técnicas avanzadas para combatirlo.</p>
+                <p>Las Aplicaciones de Una Sola Página (SPAs), construidas con frameworks como React, Vue o Angular, ofrecen una experiencia de usuario (UX) increíblemente fluida. Sin embargo, esta fluidez tiene un costo inicial: un archivo JavaScript (el bundle) grande que debe ser descargado antes de que el usuario vea algo. Este es el principal cuello de botella.</p>
 
                 <h2>1. Code Splitting (División de Código)</h2>
-                <p>Por defecto, bundlers como Webpack o Vite empaquetan toda tu aplicación en un solo archivo gigante. El Code Splitting es la técnica de dividir ese bundle en trozos más pequeños.</p>
+                <p>Por defecto, los bundlers empaquetan toda tu aplicación en un solo archivo gigante. El Code Splitting es la técnica de dividir ese bundle en trozos más pequeños.</p>
+
+                <figure class="article-figure">
+                    <img src="../img/bundle-monolitico-vs-code-splitting.jpg" alt="Diagrama comparando un bundle único gigante contra múltiples bundles pequeños divididos por ruta" class="article-image">
+                    <figcaption class="image-caption">En lugar de cargar 5MB de golpe, cargamos solo los 200KB necesarios para la página de inicio.</figcaption>
+                </figure>
 
                 <h3>División por Rutas (Lazy Loading)</h3>
-                <p>Es la forma más efectiva. ¿Por qué el usuario debería descargar el código de la página "Perfil" si solo está visitando el "Inicio"? Podemos cargar el código de una ruta solo cuando el usuario navega hacia ella.</p>
+                <p>Es la forma más efectiva. Cargamos el código de una ruta solo cuando el usuario navega hacia ella.</p>
 
-                <p>En React: <code>React.lazy()</code> y <code>Suspense</code>. En Vue: <code>defineAsyncComponent()</code> o importaciones dinámicas en el router.</p>
+                <p><strong>Ejemplo en React:</strong></p>
+                
+                <pre><code>// En lugar de: import Perfil from './paginas/Perfil';
+// Usamos Lazy Loading:
+
+import React, { Suspense, lazy } from 'react';
+
+// El componente se carga solo cuando se necesita
+const Perfil = lazy(() => import('./paginas/Perfil'));
+
+function App() {
+  return (
+    // Mostramos un spinner mientras se carga el chunk
+    &lt;Suspense fallback={&lt;div&gt;Cargando...&lt;/div&gt;}&gt;
+      &lt;Perfil /&gt;
+    &lt;/Suspense&gt;
+  );
+}</code></pre>
 
                 <h2>2. Tree Shaking (Optimización de Árbol)</h2>
-                <p>El Tree Shaking es un proceso que elimina el "código muerto" (código que importamos pero que nunca usamos) de nuestro bundle final. Si importas una librería de utilidades completa (lodash) solo para usar una función, el Tree Shaking moderno es lo suficientemente inteligente como para incluir solo esa función y descartar el resto, reduciendo drásticamente el tamaño.</p>
+                <p>El Tree Shaking es un proceso que elimina el "código muerto" (código que importamos pero que nunca usamos) de nuestro bundle final.</p>
+
+                <figure class="article-figure">
+                    <img src="../img/tree-shaking.jpg" alt="Ilustración de un árbol siendo sacudido, dejando caer las hojas secas (código sin usar)" class="article-image">
+                    <figcaption class="image-caption">Los bundlers modernos como Vite o Webpack son capaces de detectar qué funciones de una librería realmente usas y descartar el resto.</figcaption>
+                </figure>
 
                 <h2>3. Caching Estratégico y Service Workers</h2>
                 <p>Una vez que el usuario ha descargado un archivo, ¡no deberíamos obligarlo a descargarlo de nuevo!</p>
-                <p><strong>Hashing de archivos:</strong> Los bundlers modernos nombran a los archivos de salida con un hash (ej. <code>main.a8b3c9f.js</code>). Si el código no cambia, el nombre no cambia, y el navegador lo tomará del caché.</p>
-                <p><strong>Service Workers:</strong> Para un control total, podemos implementar un Service Worker (la base de las PWAs - Progressive Web Apps) para almacenar en caché los assets principales. Esto puede hacer que la aplicación cargue instantáneamente en visitas posteriores, incluso sin conexión.</p>
+                <ul>
+                    <li><strong>Hashing de archivos:</strong> Los archivos se nombran con un hash (ej. <code>main.a8b3c9f.js</code>). Si el código no cambia, el navegador usa la versión en caché.</li>
+                    <li><strong>Service Workers:</strong> Permiten un control total del caché, habilitando experiencias offline y cargas instantáneas en visitas recurrentes.</li>
+                </ul>
 
                 <h2>4. Optimización de Assets (Imágenes y Fuentes)</h2>
                 <p>A menudo, el JavaScript no es el único culpable. Imágenes pesadas pueden bloquear el renderizado.</p>
-                <p>Usa formatos modernos (WebP, AVIF) que ofrecen mejor compresión. Carga diferida (lazy loading) de imágenes que están "fuera de pantalla" (bajo el fold).</p>
+                <p>Usa formatos modernos (WebP, AVIF) que ofrecen mejor compresión. Implementa la carga diferida (lazy loading) para imágenes que están "fuera de pantalla".</p>
 
                 <h2>Conclusión</h2>
-                <p>El rendimiento de las SPAs es un equilibrio. Queremos la UX fluida de la navegación del lado del cliente, pero sin la penalización de una carga inicial lenta. Aplicando Code Splitting y optimizando assets, podemos obtener lo mejor de ambos mundos, asegurando que nuestra aplicación no solo sea potente, sino también rápida.</p>
+                <p>El rendimiento de las SPAs es un equilibrio. Aplicando Code Splitting y optimizando assets, podemos obtener la fluidez de una SPA sin la penalización de una carga inicial lenta.</p>
+                
                 <br><br>
                 <p><a class="btn-primary" href="../pagina-2.html">Volver a Publicaciones</a></p>
                 <br>
@@ -81,7 +108,7 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos </h4>
                 <ul>
-                    <li><a href="#">Volver arriba</a></li>
+                    <li><a href="#">Volver arriba</a></li>                  
                     <li><a href="../pagina-1.html">Inicio</a></li>
                     <li><a href="../pagina-2.html">Publicaciones</a></li>
                     <li><a href="../about.html">Sobre Mí</a></li>
@@ -97,15 +124,18 @@
             <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p>
         </div>
     </footer>
+    
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const btnMenu = document.querySelector('.hamburger-menu');
         const navMenu = document.querySelector('.main-nav ul');
 
-        btnMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('mostrar');
-        });
+        if (btnMenu && navMenu) {
+            btnMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('mostrar');
+            });
+        }
     });
-	</script>
+    </script>
 </body>
 </html>
