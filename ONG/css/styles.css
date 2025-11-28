@@ -122,7 +122,7 @@ main div img {
 	flex-direction: column;
 }
 
-/* Fine-tuned card hover */
+/* Card hover */
 .card {
 	transition: transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease;
 }
@@ -144,7 +144,7 @@ main div img {
 	object-fit: cover;
 }
 
-/* Subtle rounded image inside card */
+
 .card img {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
@@ -265,8 +265,8 @@ main div img {
 .card.flip-card {
     background-color: transparent;
     perspective: 1000px; /* Da el efecto 3D */
-    height: 340px; /* Altura fija necesaria para que el giro se vea bien */
-    border: none; /* Quitamos el borde del contenedor principal */
+    height: 340px; 
+    border: none; 
     overflow: visible; /* Permitimos que el 3D se salga si es necesario */
 }
 

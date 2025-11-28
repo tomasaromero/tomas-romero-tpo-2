@@ -8,7 +8,7 @@
     --dark: #3D3D3D
 }
 
-/* Hover & UI tuning tokens */
+/* Hover & UI */
 :root {
     --hover-scale: 1.01;
     --hover-brightness: 1.08;
@@ -530,7 +530,7 @@ label {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 /* La imagen animada */
