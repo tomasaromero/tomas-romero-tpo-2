@@ -33,7 +33,7 @@
             </picture>
             <div class="card-content">
                 <br>
-                <span class="category-badge">Tutoriales</span>
+                <span class="category-badge">Tutoriales</span><br><br>
                 <h1>Guía rápida: Deploy con Netlify</h1>
                 <p class="byline"><time datetime="2025-10-20">20 de Octubre, 2025</time></p>
 
@@ -82,8 +82,11 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos </h4>
                 <ul>
+                    <li><a href="#">Volver arriba</a></li>                
                     <li><a href="../pagina-1.html">Inicio</a></li>
                     <li><a href="../pagina-2.html">Publicaciones</a></li>
+                    <li><a href="../about.html">Sobre Mí</a></li>
+                    <li><a href="../tutoriales.html">Tutoriales</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -95,6 +98,15 @@
             <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnMenu = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.main-nav ul');
 
+        btnMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('mostrar');
+        });
+    });
+	</script>
 </body>
 </html>

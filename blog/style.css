@@ -33,7 +33,7 @@ body {
 
 /* Contenedor principal para centrar contenido */
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -146,13 +146,13 @@ main {
 
 /* --- LAYOUT PRINCIPAL --- */
 .main-content-area {
-    display: flex; /* REQUISITO CLAVE: Flexbox para contenido + sidebar [cite: 72] */
-    gap: 30px;
+    display: flex;
+    gap: 10px;
     margin-top: 20px;
 }
 
 .articles-section {
-    flex: 3; /* El contenido principal ocupa más espacio */
+    flex: 3; /* El contenido principal ocupa entre 2/3 y 3/4 del espacio */
     min-width: 0; /* Soluciona problemas de overflow en flexbox */
 }
 
@@ -183,9 +183,8 @@ main {
 }
 
 .article-card {
-    /* En escritorio, 2 columnas (50% - gap) */
-    flex-basis: calc(50% - 10px);
-    max-width: 1000px; 
+    flex-basis: 100%; 
+    max-width: 100%; 
     background-color: var(--color-fondo);
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -193,9 +192,8 @@ main {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* asegurar que los hijos (picture, .card-content) ocupen todo el ancho */
-    text-align: center; 
-    margin: 0 auto; 
+    /* Quitamos el centrado automático porque ya va a ocupar todo el ancho */
+    margin: 0 0 20px 0;
 }
 
 .article-card img {
@@ -218,21 +216,33 @@ main {
     width: 100%; /* asegura que el contenido ocupe todo el ancho de la tarjeta */
     text-align:left; 
     padding:24px;
+    box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
 }
 
 
 .card-content p {
-    padding-right: 55px;
-    padding-left: 15px;
-    text-align: left; 
+    padding: 0px;
+    text-align: justify;
+    line-height: 1.6;
+    color: var(--color-texto); 
 }
 
+.about-content {
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+.about-content h2 {
+    border-bottom: 2px solid var(--color-acento);
+    display: inline-block;
+    margin-bottom: 15px;
+}
     /* Variante para páginas de artículo individuales: tarjeta un poco más estrecha
        para evitar que en algunos diseños responsive quede un borde blanco a la derecha
        de la imagen de portada. Aplicar la clase `article-narrow` al elemento
        <article class="article-card article-narrow"> */
     .article-card.article-narrow {
-        max-width: 840px; 
+        max-width: 90%; 
+        margin: -10px auto 20px auto;
     }
     .article-card.article-narrow picture,
     .article-card.article-narrow picture img {
@@ -240,10 +250,19 @@ main {
         display: block;
         object-fit: cover;
     }
-    .article-card.article-narrow .card-content {
-        padding: 0px 20px; /* espacio interior coherente para lectura */
-        text-align: left; /* el contenido del artículo queda alineado a la izquierda */
+    .article-card.article-narrow .category-badge {
+        height: auto;
+        transform: scale(1.3);
+
     }
+    .article-card.article-narrow .card-content {
+        padding:100px; 
+        text-align: left; 
+    }
+    .article-card.article-narrow .card-content p {
+        text-align: justify; 
+    }
+
 .category-badge {
     display: inline-block;
     background-color: var(--color-acento);
@@ -264,6 +283,28 @@ main {
 .article-card time {
     font-size: 14px;
     color: #777;
+    padding-left: 5px;
+}
+
+/* Botón "Leer más" */
+.btn-read-more {
+    display: inline-block;
+    text-align: center;
+    background: var(--color-acento);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s;
+    
+    align-self: flex-start; /* Evita que se estire al 100% del ancho o alto */
+    width: auto; /* Ancho natural del contenido */
+    margin-top: auto; /* Asegura que se quede abajo */
+}
+.btn-read-more:hover {
+    background: #0056b3; 
+    transform: scale(1.03);
 }
 
 /*  PAGINACIÓN  */
@@ -450,7 +491,7 @@ main {
 /* --- TABLETS (768px - 1024px)  --- */
 @media (min-width: 768px) {
   .article-card {
-    flex-basis: calc(70% - 30px); 
+    flex-basis: calc(95% - 30px); 
     max-width: none;
     
   }
@@ -463,8 +504,23 @@ main {
 @media (max-width: 767px) {
     
     .main-nav {
-        display: none; /* Oculta el menú normal */
-        /* (Se necesitaría JavaScript para mostrarlo al pulsar el botón) */
+        display: block; 
+    }
+    .main-nav ul {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-fondo);
+        position: absolute;
+        top: 70px; /* Ajustar a la altura del header */
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Clase que agrega JS al hacer click */
+    .main-nav ul.mostrar {
+        display: flex;
     }
 
     .hamburger-menu {
@@ -488,6 +544,7 @@ main {
 
     .article-card {
         flex-basis: 100%; 
+        max-width: 100%;  
     }
 
     .footer-container {
@@ -518,7 +575,6 @@ main {
 .footer-col a:hover,
 .pagination a:hover {
     color: var(--color-acento);
-    text-decoration: underline;
     transform: translateY(-2px);
 }
 
@@ -552,6 +608,9 @@ main {
 /* Imagen dentro de la card: ligero zoom y ajuste de brillo */
 .article-card img {
     transition: transform 300ms ease, filter 200ms ease;
+    margin: 0 auto;
+    object-fit: cover;
+    transform: scale(1.05);
 }
 .article-card img:hover {
     transform: scale(1.05);
@@ -639,4 +698,72 @@ pre code {
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.9em;
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS PARA ABOUT.HTML
+   ========================================= */
+
+/* Contenedor general de la figura y el epígrafe */
+.about-figure {
+    margin: 2rem 0; /* Espacio arriba y abajo */
+    text-align: center; 
+}
+
+/* Estilo del epígrafe */
+.image-caption {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #666; 
+    margin-top: 0.8rem;
+    font-style: italic;
+}
+
+/* Imagen Ancha (Misión) */
+.about-image-wide {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Sección del Autor (Foto de perfil) */
+
+/* Contenedor para manejar el texto y la imagen flotante */
+.author-bio-container {
+    display: flow-root; 
+}
+
+/* La figura específica del autor */
+.author-figure {
+    /* Por defecto (móvil) la imagen está centrada arriba del texto */
+    margin: 0 auto 1.5rem auto;
+    max-width: 200px;
+}
+
+/* Estilo de la imagen de perfil redonda */
+.about-image-profile {
+    width: 180px;
+    height: 180px;
+    object-fit: cover; 
+    border-radius: 50%; 
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+#titulo-about {
+    color: var(--color-primario);
+}
+
+@media (min-width: 768px) {
+    .author-figure {
+        float: left;
+        margin: 0 2rem 0.5rem 0; 
+        text-align: center;
+    }
+    
+    .author-bio-container p:first-of-type {
+       margin-top: 1rem;
+    }
 }

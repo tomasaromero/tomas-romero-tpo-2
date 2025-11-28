@@ -34,6 +34,7 @@ div header img {
     margin-left: auto;
     margin-right: auto;
     /*margen izquierdo automático hace que el margen derecho también lo sea*/
+    object-fit: cover;
     
 }
 

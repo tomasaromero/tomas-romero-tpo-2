@@ -33,24 +33,39 @@
 
         <section class="section-card">
             <div class="card-text">
-                <h2 id="h2-about">Nuestra misión</h2>
-                <p>En este blog buscamos explicar conceptos técnicos de forma clara y práctica. Publicamos artículos de opinión, tutoriales paso a paso y reseñas de herramientas que usamos en proyectos reales.</p>
+                <div class="card-text about-content">
+                    
+                    <figure class="about-figure mission-figure">
+                        <img src="img/espacio_de_trabajo.jpg" alt="Escritorio con computadora mostrando código" class="about-image-wide">
+                        <figcaption class="image-caption">Nuestro objetivo es simplificar el mundo del código.</figcaption>
+                    </figure>
 
-                <h2 id="h2-about">¿Para quién es este blog?</h2>
-                <p>Está pensado para estudiantes, desarrolladores en formación y profesionales que quieran mantenerse al día con técnicas modernas y recursos útiles.</p>
-
-                <h2 id="h2-about">Temáticas principales</h2>
-                <ul>
-                    <li>Tecnología: tendencias y análisis</li>
-                    <li>Desarrollo Web: buenas prácticas y accesibilidad</li>
-                    <li>Tutoriales: guías prácticas y despliegues</li>
-                </ul>
-
-                <h2 id="h2-about">Sobre el autor</h2>
-                <p>Mi nombre es Tomás Romero. Soy entusiasta del desarrollo web y la computación; en este blog comparto lo que voy aprendiendo y creando.</p>
-
-                <h2 id="contacto">Contacto</h2>
-                <p>Si querés contactarme podés escribir a <a href="mailto:tomasromero@miblog.com">tomasromero@miblog.com</a> o visitar mi <a href="https://github.com/tomasaromero">GitHub</a>.</p>
+                    <h2 id="titulo-about">Nuestra misión</h2>
+                    <p>En este blog buscamos explicar conceptos técnicos de forma clara y práctica. Publicamos artículos de opinión, tutoriales paso a paso y reseñas de herramientas que usamos en proyectos reales.</p>
+                    
+                    <h2 id="titulo-about">¿Para quién es este blog?</h2>
+                    <p>Está pensado para estudiantes, desarrolladores en formación y profesionales que quieran mantenerse al día con técnicas modernas y recursos útiles.</p>
+                    
+                    <h2 id="titulo-about">Temáticas principales</h2>
+                    <ul>
+                        <li>Tecnología: tendencias y análisis</li>
+                        <li>Desarrollo Web: buenas prácticas y accesibilidad</li>
+                        <li>Tutoriales: guías prácticas y despliegues</li>
+                    </ul>
+                
+                    <h2 id="titulo-about">Sobre el autor</h2>
+                    <div class="author-bio-container">
+                        <figure class="about-figure author-figure">
+                            <img src="../identikit/img/OIP.webp" alt="Foto de perfil de Tomás Romero" class="about-image-profile">
+                            <figcaption class="image-caption">Tomás Romero</figcaption>
+                        </figure>
+                        <p>Mi nombre es Tomás Romero. Soy entusiasta del desarrollo web y la computación; en este blog comparto lo que voy aprendiendo y creando.</p>
+                         <p>Creo firmemente que la mejor forma de aprender es enseñando y construyendo proyectos públicos.</p>
+                    </div>
+                
+                    <h2 id="titulo-about" id="contacto-seccion">Contacto</h2>
+                    <p>Si querés contactarme podés escribir a <a href="mailto:tomasromero@miblog.com">tomasromero@miblog.com</a> o visitar mi <a href="https://github.com/tomasaromero">GitHub</a>.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -65,8 +80,11 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos</h4>
                 <ul>
+                    <li><a href="#">Volver arriba</a></li>                 
                     <li><a href="pagina-1.html">Inicio</a></li>
                     <li><a href="pagina-2.html">Publicaciones</a></li>
+                    <li><a href="about.html">Sobre Mí</a></li>
+                    <li><a href="tutoriales.html">Tutoriales</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -78,6 +96,16 @@
             <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnMenu = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.main-nav ul');
+
+        btnMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('mostrar');
+        });
+    });
+</script>
 
 </body>
 </html>

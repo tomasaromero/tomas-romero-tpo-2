@@ -55,8 +55,9 @@
                                     El futuro de la computación cuántica
                                 </a>
                             </h3>
-                            <p>Un vistazo a cómo la computación cuántica puede cambiar el panorama tecnológico en los próximos años.</p>
-                            <time datetime="2025-10-24">24 de Octubre, 2025</time>
+                            <p>Un vistazo a cómo la computación cuántica puede cambiar el panorama tecnológico en los próximos años.</p><br>
+                            <a href="articulos/articulo-4.html" class="btn-read-more">Seguir leyendo </a>
+                            <br><time datetime="2025-10-24">24 de Octubre, 2025</time>
                         </div>
                     </article>
 
@@ -74,8 +75,9 @@
                                     Optimización de rendimiento en SPAs
                                 </a>
                             </h3>
-                            <p>Técnicas prácticas para reducir tiempos de carga y mejorar la experiencia en aplicaciones de una sola página.</p>
-                            <time datetime="2025-10-22">22 de Octubre, 2025</time>
+                            <p>Técnicas prácticas para reducir tiempos de carga y mejorar la experiencia en aplicaciones de una sola página.</p><br>
+                            <a href="articulos/articulo-5.html" class="btn-read-more">Seguir leyendo </a>
+                            <br><time datetime="2025-10-22">22 de Octubre, 2025</time>
                         </div>
                     </article>
 
@@ -92,8 +94,9 @@
                                     Crear tu primer componente en React
                                 </a>
                             </h3>
-                            <p>Aprende a construir componentes reutilizables con hooks y estado local en ejemplos simples.</p>
-                            <time datetime="2025-10-20">20 de Octubre, 2025</time>
+                            <p>Aprende a construir componentes reutilizables con hooks y estado local en ejemplos simples.</p><br>
+                            <a href="articulos/articulo-6.html" class="btn-read-more">Seguir leyendo </a>
+                            <br><time datetime="2025-10-20">20 de Octubre, 2025</time>
                         </div>
                     </article>
 
@@ -113,7 +116,7 @@
                 <div class="widget subscription-widget">
                     <h4>Subscríbete al Blog</h4>
                     <p>Recibe las últimas noticias en tu email.</p>
-                    <form class="subscription-form" method="post" action="agradecimiento.html" autocomplete="on">
+                    <form class="subscription-form" id="form-suscripcion">
                         <br>
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Nombre">
@@ -178,8 +181,11 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos </h4>
                 <ul>
+                    <li><a href="#">Volver arriba</a></li>                    
                     <li><a href="pagina-1.html">Inicio</a></li>
                     <li><a href="pagina-2.html">Publicaciones</a></li>
+                    <li><a href="about.html">Sobre Mí</a></li>
+                    <li><a href="tutoriales.html">Tutoriales</a></li>
                 </ul>
             </div>
 
@@ -193,6 +199,28 @@
             <p>&copy; 2025 Mi Blog Personal. Todos los derechos reservados.</p> 
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMenu = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.main-nav ul');
+
+            btnMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('mostrar');
+            });
+        });
+        document.getElementById('form-suscripcion').addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita que el formulario recargue la página o use GET/POST
+
+        // 1. Capturamos el nombre
+        const nombre = document.getElementById('nombre').value;
+
+        // 2. Lo guardamos en la memoria del navegador (desaparece al cerrar la pestaña si usas sessionStorage)
+        sessionStorage.setItem('nombreSuscriptor', nombre);
+
+        // 3. Redirigimos manualmente a la página de agradecimiento
+        window.location.href = 'agradecimiento.html';
+        });
+    </script>
 
 </body>
 </html>

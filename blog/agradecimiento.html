@@ -47,8 +47,11 @@
             <div class="footer-col">
                 <h4>Enlaces Rápidos </h4>
                 <ul>
+                    <li><a href="#">Volver arriba</a></li>                    
                     <li><a href="pagina-1.html">Inicio</a></li>
                     <li><a href="pagina-2.html">Publicaciones</a></li>
+                    <li><a href="about.html">Sobre Mí</a></li>
+                    <li><a href="tutoriales.html">Tutoriales</a></li>                    
                 </ul>
             </div>
             <div class="footer-col">
@@ -62,7 +65,7 @@
     </footer>
 
     <script>
-        // Opcional: mostrar nombre si viene en la querystring (?nombre=...)
+        // mostrar nombre si viene en la querystring (?nombre=...)
         (function(){
             try {
                 const params = new URLSearchParams(location.search);
@@ -73,7 +76,37 @@
                 }
             } catch(e){}
         })();
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnMenu = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.main-nav ul');
 
+        btnMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('mostrar');
+        });
+    });
+    (function(){
+        // Intentamos recuperar el nombre del almacenamiento de sesión
+        const nombreGuardado = sessionStorage.getItem('nombreSuscriptor');
+        if(nombreGuardado) {
+            const msg = document.getElementById('thank-msg');
+            // Usamos el nombre guardado
+            msg.textContent = `Gracias, ${nombreGuardado}. Hemos recibido tu suscripción. Revisa tu correo para confirmar.`;
+            // Limpiar el nombre para que no quede guardado por siempre
+            sessionStorage.removeItem('nombreSuscriptor'); 
+        }
+    })();
+    document.getElementById('form-suscripcion').addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita que el formulario recargue la página o use GET/POST
+
+        // 1. Capturamos el nombre
+        const nombre = document.getElementById('nombre').value;
+
+        // 2. Lo guardamos en la memoria del navegador (desaparece al cerrar la pestaña si usas sessionStorage)
+        sessionStorage.setItem('nombreSuscriptor', nombre);
+
+        // 3. Redirigimos manualmente a la página de agradecimiento
+        window.location.href = 'agradecimiento.html';
+    });
+</script>
 </body>
 </html>
